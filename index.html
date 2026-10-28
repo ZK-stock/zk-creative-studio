@@ -49,7 +49,7 @@ nav .links a:hover{color:var(--ink)}
 .btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none;background:#717696;border-color:#717696;color:#fff!important}
 
 /* Hero Section */
-.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;padding:20px 0 60px}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;padding:20px 0 50px}
 .hero p{margin:18px 0 26px;color:var(--mute);font-size:1.1rem}
 .hero h1 span{display:block}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -65,9 +65,45 @@ nav .links a:hover{color:var(--ink)}
 .badge{position:absolute;left:6px;bottom:6px;background:var(--ink);color:var(--bg);border-radius:999px;padding:2px 9px;font-size:0.72rem;font-weight:600}
 @keyframes drop{from{opacity:0;transform:translateY(-50px) scale(.9)}to{opacity:1;transform:none}}
 
-section{padding:60px 0}
+section{padding:50px 0}
 .head{margin-bottom:28px}
 .head p{color:var(--mute);margin-top:8px}
+
+/* Kotak Alat Gratis & Gate di Atas */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--paper);border-radius:24px;padding:30px;box-shadow:0 4px 18px rgba(0,0,0,.03), 0 0 0 1px var(--line)}
+.card p{color:var(--mute);margin:10px 0 20px;font-size:0.98rem}
+.card .free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:0.85rem;padding:3px 12px;border-radius:999px;margin-bottom:12px}
+
+.gate{background:linear-gradient(135deg, #14162E, #1F2448);color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:1.1fr 1.2fr;gap:30px;align-items:center;border:2px solid var(--cyan);box-shadow:0 12px 35px rgba(39,195,240,.2);margin-bottom:30px}
+.gate h3{color:#fff;font-size:1.6rem}
+.gate p{color:#AAB0E0;margin-top:8px;font-size:1.02rem}
+.steps{display:grid;gap:12px}
+
+.step{display:flex;align-items:center;gap:14px;border:2px solid #3F477D;border-radius:16px;padding:14px 20px;background:rgba(255,255,255,0.06);color:#fff;font:700 1.05rem var(--body);cursor:pointer;text-align:left;width:100%;transition:all .2s}
+.step:hover{border-color:var(--cyan);background:rgba(39,195,240,0.12);transform:translateY(-2px)}
+.step i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--cyan);color:var(--cyan);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:0.95rem}
+.step.done{border-color:var(--ok);background:rgba(31,175,133,0.15)}
+.step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
+.note{font-size:0.9rem;color:#FFD166;margin-top:8px;font-weight:600}
+
+/* Ekstensi dengan Ikon Vektor */
+.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ext .card{padding:28px}
+.ext h3{margin-bottom:6px}
+.ext p{margin:0;font-size:0.92rem}
+.ext-ico{width:50px;height:50px;border-radius:14px;background:var(--ink);display:grid;place-items:center;margin-bottom:16px}
+.ext-ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Kotak Voucher Diskon */
+.voucher-box{background:linear-gradient(135deg, #FF4D8D, #6C63FF);color:#fff;border-radius:20px;padding:22px 28px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(255,77,141,0.25)}
+.voucher-box h4{font:800 1.2rem var(--display);margin-bottom:4px}
+.voucher-box p{font-size:0.92rem;opacity:.92;max-width:45ch}
+.code-tag{background:#fff;color:#14162E;font-family:var(--display);font-weight:800;font-size:1.15rem;padding:8px 16px;border-radius:12px;letter-spacing:.05em;box-shadow:0 4px 12px rgba(0,0,0,.15);flex:none;text-align:center}
+
+.pro{margin-top:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:30px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
+.pro p{color:var(--mute);margin-top:6px;font-size:0.95rem}
+.price{font:800 1.8rem var(--display);letter-spacing:-.02em;margin-top:4px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .item{background:var(--paper);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
@@ -102,15 +138,6 @@ dialog#lb img{width:100%;height:auto;display:block;border-radius:12px;cursor:zoo
 .how .card{position:relative;padding-top:52px}
 .how .card::before{counter-increment:n;content:counter(n);position:absolute;top:18px;left:24px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font:800 .9rem var(--display);display:grid;place-items:center}
 .how .card p{margin:8px 0 0;font-size:0.95rem}
-
-.price{font:800 1.8rem var(--display);letter-spacing:-.02em;margin-top:4px}
-.price small{font:500 .9rem var(--body);color:var(--mute);letter-spacing:0}
-
-/* Kotak Voucher Diskon */
-.voucher-box{background:linear-gradient(135deg, #FF4D8D, #6C63FF);color:#fff;border-radius:20px;padding:22px 28px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(255,77,141,0.25)}
-.voucher-box h4{font:800 1.2rem var(--display);margin-bottom:4px}
-.voucher-box p{font-size:0.92rem;opacity:.92;max-width:45ch}
-.code-tag{background:#fff;color:#14162E;font-family:var(--display);font-weight:800;font-size:1.15rem;padding:8px 16px;border-radius:12px;letter-spacing:.05em;box-shadow:0 4px 12px rgba(0,0,0,.15);flex:none;text-align:center}
 
 .faq{display:grid;gap:10px;max-width:800px}
 .faq details{background:var(--paper);border-radius:16px;padding:16px 20px;box-shadow:0 0 0 1px var(--line)}
@@ -153,33 +180,8 @@ dialog#lb img{width:100%;height:auto;display:block;border-radius:12px;cursor:zoo
 .chat-popup .chat-name { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; }
 .chat-popup .chat-msg { color: var(--mute); font-size: 0.8rem; }
 
-/* Kartu Alat Gratis */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ext .card{padding:24px}
-.ext h3{margin-bottom:6px}
-.ext p{margin:0;font-size:0.92rem}
 .ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;margin-bottom:16px;box-shadow:0 6px 16px rgba(108,99,255,0.2)}
 .ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-
-.pro{margin-top:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:30px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
-.pro p{color:var(--mute);margin-top:6px;font-size:0.95rem}
-.card{background:var(--paper);border-radius:24px;padding:30px;box-shadow:0 4px 18px rgba(0,0,0,.03), 0 0 0 1px var(--line)}
-.card p{color:var(--mute);margin:10px 0 20px;font-size:0.98rem}
-.card .free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:0.85rem;padding:3px 12px;border-radius:999px;margin-bottom:12px}
-
-/* KOTAK GATE SYARAT */
-.gate{margin-top:30px;background:linear-gradient(135deg, #14162E, #1F2448);color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:1.1fr 1.2fr;gap:30px;align-items:center;border:2px solid var(--cyan);box-shadow:0 12px 35px rgba(39,195,240,.2)}
-.gate h3{color:#fff;font-size:1.6rem}
-.gate p{color:#AAB0E0;margin-top:8px;font-size:1.02rem}
-.steps{display:grid;gap:12px}
-
-.step{display:flex;align-items:center;gap:14px;border:2px solid #3F477D;border-radius:16px;padding:14px 20px;background:rgba(255,255,255,0.06);color:#fff;font:700 1.05rem var(--body);cursor:pointer;text-align:left;width:100%;transition:all .2s}
-.step:hover{border-color:var(--cyan);background:rgba(39,195,240,0.12);transform:translateY(-2px)}
-.step i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--cyan);color:var(--cyan);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:0.95rem}
-.step.done{border-color:var(--ok);background:rgba(31,175,133,0.15)}
-.step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
-.note{font-size:0.9rem;color:#FFD166;margin-top:8px;font-weight:600}
 
 .buy{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--paper);border-radius:28px;padding:38px;box-shadow:0 0 0 1px var(--line)}
 .buy p{color:var(--mute);margin-top:10px;font-size:0.98rem}
@@ -203,21 +205,23 @@ footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;just
   <nav>
     <a class="logo" href="#"><img src="aset/logo.jpg" alt="Logo">ZK Creative Studio</a>
     <div class="links">
-      <a href="#aset">Aset terlaris</a>
       <a href="#alat">Alat gratis</a>
       <a href="#ekstensi">Ekstensi</a>
-      <a href="#faq">Tanya jawab</a>
-      <a href="#pro">ZK Pro</a>
-      <a class="btn" data-link="lynk" href="#">Beli aset</a>
+      <a href="#aset">Aset terlaris</a>
+      <a href="#hasil">Pendapatan</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" data-link="lynk" href="#">Beli Pro</a>
     </div>
   </nav>
+
+  <!-- HERO SECTION -->
   <header class="hero">
     <div>
       <h1><span>Aset stock</span><span>yang laku,</span><span>alat yang gratis.</span></h1>
-      <p>Vektor dan foto microstock yang sudah terjual di Adobe Stock, ditambah alat bantu untuk kontributor: pembuat metadata dan prompt dari gambar.</p>
+      <p>Vektor dan foto microstock yang sudah terjual di Adobe Stock, ditambah alat bantu otomatisasi metadata dan prompt untuk kontributor.</p>
       <div class="cta">
         <a class="btn grad blink" href="#alat">Ambil alat gratis</a>
-        <a class="btn alt" href="#aset">Lihat aset</a>
+        <a class="btn alt" href="#aset">Lihat portofolio aset</a>
       </div>
       <div class="counts">
         <div><b>214</b><small>unduhan tahun ini</small></div>
@@ -229,46 +233,15 @@ footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;just
   </header>
 </div>
 
-<section id="aset">
-  <div class="wrap">
-    <div class="head"><h2>Aset yang sudah laku</h2><p>Delapan aset teratas di Adobe Stock, urut dari unduhan terbanyak.</p></div>
-    <div class="grid" id="grid"></div>
-    <div class="more"><a class="btn" data-link="lynk" href="#">Lihat dan beli di Lynk.id</a></div>
-  </div>
-</section>
-
-<section id="hasil">
-  <div class="wrap">
-    <div class="head"><h2>Hasil nyata dari Adobe Stock</h2><p>Angka dari dasbor kontributor saya sendiri, periode tahun ini.</p></div>
-    <div class="proof">
-      <div class="nums">
-        <div class="num"><b>214</b><small>unduhan</small></div>
-        <div class="num"><b>$186,63</b><small>pendapatan</small></div>
-      </div>
-      <div class="chart">
-        <h3>Tren 12 minggu terakhir</h3>
-        <div class="legend"><span><i style="background:var(--violet)"></i>Pendapatan (USD)</span><span><i style="background:#FF4D8D;border-radius:50%"></i>Unduhan</span></div>
-        <svg id="trend" viewBox="0 0 720 270" role="img" aria-label="Grafik pendapatan dan unduhan 12 minggu"></svg>
-      </div>
-    </div>
-    <p class="fine">Ini hasil portofolio pribadi di satu platform dan bukan jaminan penghasilan.</p>
-  </div>
-</section>
-
-<section id="cara">
-  <div class="wrap">
-    <div class="head"><h2>Cara kerjanya, 3 langkah</h2><p>Dari ide sampai siap unggah ke platform microstock.</p></div>
-    <div class="how">
-      <div class="card"><h3>Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt yang mendekati aslinya.</p></div>
-      <div class="card"><h3>Generate di ZK Vector</h3><p>Tempel prompt ke ZK Vector. Generate satu per satu atau sekaligus (batch), hasilnya dikemas rapi dalam file ZIP.</p></div>
-      <div class="card"><h3>Beri metadata lalu unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword. Gambar dan video sama-sama didukung.</p></div>
-    </div>
-  </div>
-</section>
-
+<!-- ========================================== -->
+<!-- URUTAN KEDUA: ALAT GRATIS & SYARAT (GATE)  -->
+<!-- ========================================== -->
 <section id="alat">
   <div class="wrap">
-    <div class="head"><h2>Alat gratis untuk kontributor</h2><p>Dibuat untuk mempercepat kerja unggah microstock. Gratis dipakai; versi tanpa iklan ada di ZK Pro.</p></div>
+    <div class="head">
+      <h2>Alat gratis untuk kontributor</h2>
+      <p>Dibuat khusus untuk mempercepat kerja unggah microstock. Buka kuncinya dengan 2 langkah di bawah!</p>
+    </div>
     
     <!-- KOTAK GATE SYARAT -->
     <div class="gate">
@@ -283,6 +256,7 @@ footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;just
       </div>
     </div>
 
+    <!-- KARTU ALAT GRATIS -->
     <div class="tools" style="margin-top: 30px;">
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
@@ -315,35 +289,115 @@ footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;just
         <a class="btn grad" id="tMot" aria-disabled="true" href="#alat">🔒 Buka ZK Motion</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- KOTAK PROMO VOUCHER KHUSUS -->
+<!-- ========================================== -->
+<!-- KETIGA: EKSTENSI BROWSER DENGAN IKON JELAS -->
+<!-- ========================================== -->
+<section id="ekstensi">
+  <div class="wrap">
+    <div class="head">
+      <h2>Ekstensi otomatis untuk kontributor</h2>
+      <p>Ekstensi browser siap pakai untuk mempercepat pekerjaan berulang di platform stock.</p>
+    </div>
+    <div class="ext">
+      <div class="card">
+        <div class="ext-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Adobe Stock</h3>
+        <p>Ekstensi otomatis untuk halaman kontributor Adobe Stock.</p>
+      </div>
+      <div class="card">
+        <div class="ext-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <h3>Pngtree</h3>
+        <p>Ekstensi otomatis untuk halaman unggah Pngtree.</p>
+      </div>
+      <div class="card">
+        <div class="ext-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <h3>Shutterstock</h3>
+        <p>Ekstensi otomatis untuk Shutterstock dengan pilihan AI Gemini/Groq.</p>
+      </div>
+    </div>
+    <div class="more"><a class="btn grad" data-link="lynk" href="#">Lihat & Dapatkan Ekstensi di Lynk.id</a></div>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- KEEMPAT: ASET TERLARIS & PENDAPATAN        -->
+<!-- ========================================== -->
+<section id="aset">
+  <div class="wrap">
+    <div class="head">
+      <h2>Aset yang sudah laku</h2>
+      <p>Delapan aset teratas di Adobe Stock, urut dari unduhan terbanyak.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more"><a class="btn" data-link="lynk" href="#">Lihat dan beli semua aset di Lynk.id</a></div>
+  </div>
+</section>
+
+<section id="hasil">
+  <div class="wrap">
+    <div class="head">
+      <h2>Hasil nyata dari Adobe Stock</h2>
+      <p>Angka dari dasbor kontributor saya sendiri, periode tahun ini.</p>
+    </div>
+    <div class="proof">
+      <div class="nums">
+        <div class="num"><b>214</b><small>unduhan</small></div>
+        <div class="num"><b>$186,63</b><small>pendapatan</small></div>
+      </div>
+      <div class="chart">
+        <h3>Tren 12 minggu terakhir</h3>
+        <div class="legend"><span><i style="background:var(--violet)"></i>Pendapatan (USD)</span><span><i style="background:#FF4D8D;border-radius:50%"></i>Unduhan</span></div>
+        <svg id="trend" viewBox="0 0 720 270" role="img" aria-label="Grafik pendapatan dan unduhan 12 minggu"></svg>
+      </div>
+    </div>
+    <p class="fine">Ini hasil portofolio pribadi di satu platform dan bukan jaminan penghasilan.</p>
+  </div>
+</section>
+
+<section id="cara">
+  <div class="wrap">
+    <div class="head">
+      <h2>Cara kerjanya, 3 langkah</h2>
+      <p>Dari ide sampai siap unggah ke platform microstock.</p>
+    </div>
+    <div class="how">
+      <div class="card"><h3>1. Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt siap pakai.</p></div>
+      <div class="card"><h3>2. Generate di ZK Vector</h3><p>Tempel prompt ke ZK Vector. Hasilnya dikemas rapi dalam file ZIP.</p></div>
+      <div class="card"><h3>3. Beri metadata & unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword otomatis. Langsung unggah!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- KELIMA: PROMO VOUCHER & ZK PRO             -->
+<!-- ========================================== -->
+<section>
+  <div class="wrap">
+    <!-- KOTAK PROMO VOUCHER -->
     <div class="voucher-box">
       <div>
-        <h4>🎟️ Spesial Diskon ZK Pro & Tools!</h4>
-        <p>Gunakan kode voucher khusus saat pembelian di Lynk.id untuk mendapatkan potongan harga langsung sebesar Rp5.000!</p>
+        <h4>🎟️ Spesial Diskon Pembelian ZK Pro & Tools!</h4>
+        <p>Gunakan kode voucher khusus saat checkout di Lynk.id untuk mendapatkan potongan harga langsung sebesar Rp5.000!</p>
       </div>
       <div class="code-tag">ZKGRATIS</div>
     </div>
 
-    <div class="pro" id="pro">
-      <div><span class="free">ZK Pro</span><h3>Bebas iklan, generate gambar tanpa batas</h3><div class="price">Rp35.000</div><p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas.</p></div>
-      <a class="btn" data-link="lynk" href="#">Beli ZK Pro</a>
+    <div class="pro" id="pro" style="margin-top: 24px;">
+      <div>
+        <span class="free">ZK Pro</span>
+        <h3>Bebas iklan, generate gambar tanpa batas</h3>
+        <div class="price">Rp35.000 <small style="color:var(--mute); font-size:0.9rem;">(Pakai voucher ZKGRATIS jadi lebih murah!)</small></div>
+        <p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas.</p>
+      </div>
+      <a class="btn grad" data-link="lynk" href="#">Beli ZK Pro Sekarang</a>
     </div>
   </div>
 </section>
 
-<section id="ekstensi">
-  <div class="wrap">
-    <div class="head"><h2>Ekstensi otomatis untuk kontributor</h2><p>Ekstensi browser untuk mempercepat pekerjaan berulang di platform stock.</p></div>
-    <div class="ext">
-      <div class="card"><h3>Adobe Stock</h3><p>Ekstensi otomatis untuk halaman kontributor Adobe Stock.</p></div>
-      <div class="card"><h3>Pngtree</h3><p>Ekstensi otomatis untuk halaman unggah Pngtree.</p></div>
-      <div class="card"><h3>Shutterstock</h3><p>Ekstensi otomatis untuk Shutterstock.</p></div>
-    </div>
-    <div class="more"><a class="btn grad" data-link="lynk" href="#">Lihat ekstensi di Lynk.id</a></div>
-  </div>
-</section>
-
+<!-- FAQ SECTION -->
 <section id="faq">
   <div class="wrap">
     <div class="head"><h2>Pertanyaan yang sering masuk</h2></div>
