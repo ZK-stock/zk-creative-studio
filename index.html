@@ -8,7 +8,7 @@
 <meta property="og:description" content="Aset stock yang sudah laku di Adobe Stock, plus alat gratis untuk kontributor microstock.">
 <meta property="og:type" content="website">
 <meta name="description" content="Aset vektor dan foto microstock, plus alat gratis ZK Metadata dan ZK Prompt Generator untuk kontributor stock.">
-<link rel="icon" href="logo.png">
+<link rel="icon" href="aset/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -28,7 +28,7 @@ h3{font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
 p{max-width:62ch}
 nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
 .logo{font:800 1.2rem var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo img{width:36px;height:36px;border-radius:10px}
+.logo img{width:36px;height:36px;border-radius:10px;object-fit:cover}
 nav .links{display:flex;gap:26px;align-items:center;font-weight:500}
 nav .links a{text-decoration:none;color:var(--mute)}
 nav .links a:hover{color:var(--ink)}
@@ -36,6 +36,17 @@ nav .links a:hover{color:var(--ink)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px var(--violet)}
 .btn.alt{background:transparent;color:var(--ink)!important}
 .btn.grad{background:linear-gradient(135deg,var(--violet),var(--cyan));border-color:transparent;color:#fff!important}
+
+/* Efek Kedap-Kedip / Berdenyut untuk Tombol Utama */
+@keyframes blinkGlow {
+  0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.7); transform: scale(1); }
+  50% { box-shadow: 0 0 20px 6px rgba(39, 195, 240, 0.9); transform: scale(1.03); }
+  100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); transform: scale(1); }
+}
+.btn.blink {
+  animation: blinkGlow 2s infinite ease-in-out;
+}
+
 .btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none}
 .hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:30px 0 80px}
 .hero p{margin:22px 0 30px;color:var(--mute);font-size:1.15rem}
@@ -126,7 +137,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
 <body>
 <div class="wrap">
   <nav>
-    <a class="logo" href="#"><img src="logo.png" alt="">ZK Creative Studio</a>
+    <a class="logo" href="#"><img src="aset/logo.jpg" alt="Logo">ZK Creative Studio</a>
     <div class="links">
       <a href="#aset">Aset terlaris</a>
       <a href="#alat">Alat gratis</a>
@@ -141,7 +152,8 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
       <h1><span>Aset stock</span><span>yang laku,</span><span>alat yang gratis.</span></h1>
       <p>Vektor dan foto microstock yang sudah terjual di Adobe Stock, ditambah alat bantu untuk kontributor: pembuat metadata dan prompt dari gambar.</p>
       <div class="cta">
-        <a class="btn grad" href="#alat">Ambil alat gratis</a>
+        <!-- Tombol dengan efek kedap-kedip / berdenyut (blink) -->
+        <a class="btn grad blink" href="#alat">Ambil alat gratis</a>
         <a class="btn alt" href="#aset">Lihat aset</a>
       </div>
       <div class="counts">
@@ -272,7 +284,7 @@ const C={
   prompt:"https://zk-stock.github.io/ZK-prompt-generator/",
   calendar:"https://zk-stock.github.io/calendar-microstock/",
   motion:"#",      
-  guideApi:"https://www.tiktok.com/@ironmenine/video/7608636647357304085?is_from_webapp=1&sender_device=pc&web_id=7674475600152659464",   // Video panduan API key
+  guideApi:"https://www.tiktok.com/@ironmenine/video/7608636647357304085?is_from_webapp=1&sender_device=pc&web_id=7674475600152659464",
   guideExt:"#"    
 };
 const A=[["aset1","Lettering Class of 2026",38],["aset2","Set ikon organ tubuh",12],["aset3","Label dan banner promo",8],["aset4","Doodle pesta tahun baru",7],["aset5","Logo klub baseball",6],["aset6","Logo kedai kopi",6],["aset7","Pemain sepak bola",5],["aset8","Mockup papan iklan jalan",5]];
