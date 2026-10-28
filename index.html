@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <title>ZK Creative Studio — Aset Microstock & Alat Gratis untuk Kontributor</title>
 <meta property="og:title" content="ZK Creative Studio — Aset Microstock dan Alat Gratis">
 <meta property="og:description" content="Aset stock yang sudah laku di Adobe Stock, plus alat gratis untuk kontributor microstock.">
@@ -17,181 +17,184 @@
 @media (prefers-color-scheme:dark){:root{--bg:#0E1022;--paper:#181B36;--ink:#EEF0FF;--mute:#9CA2C8;--line:#2A2E55}}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
-h1{font-size:clamp(2.5rem,6.4vw,5rem);font-weight:800}
-h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800}
-h3{font-size:1.45rem;font-weight:800;letter-spacing:-.01em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem, 5.5vw, 4.8rem);font-weight:800}
+h2{font-size:clamp(1.7rem, 3.5vw, 2.7rem);font-weight:800}
+h3{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
 p{max-width:62ch}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font:800 1.2rem var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo img{width:36px;height:36px;border-radius:10px;object-fit:cover}
-nav .links{display:flex;gap:26px;align-items:center;font-weight:500}
-nav .links a{text-decoration:none;color:var(--mute)}
+
+/* Navigasi */
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;position:relative;z-index:10}
+.logo{font:800 1.1rem var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo img{width:34px;height:34px;border-radius:10px;object-fit:cover}
+nav .links{display:flex;gap:20px;align-items:center;font-weight:500;font-size:0.95rem}
+nav .links a{text-decoration:none;color:var(--mute);transition:color .2s}
 nav .links a:hover{color:var(--ink)}
-.btn{display:inline-block;background:var(--ink);color:var(--bg)!important;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:var(--body);font-size:1rem}
+
+.btn{display:inline-block;background:var(--ink);color:var(--bg)!important;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:var(--body);font-size:0.95rem;text-align:center}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px var(--violet)}
 .btn.alt{background:transparent;color:var(--ink)!important}
 .btn.grad{background:linear-gradient(135deg,var(--violet),var(--cyan));border-color:transparent;color:#fff!important}
 
 @keyframes blinkGlow {
   0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.7); transform: scale(1); }
-  50% { box-shadow: 0 0 22px 8px rgba(39, 195, 240, 0.9); transform: scale(1.03); }
+  50% { box-shadow: 0 0 22px 8px rgba(39, 195, 240, 0.9); transform: scale(1.02); }
   100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); transform: scale(1); }
 }
 .btn.blink { animation: blinkGlow 2s infinite ease-in-out; }
-.btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none}
+.btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none;background:#717696;border-color:#717696;color:#fff!important}
 
-.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:30px 0 80px}
-.hero p{margin:22px 0 30px;color:var(--mute);font-size:1.15rem}
+/* Hero Section */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;padding:20px 0 60px}
+.hero p{margin:18px 0 26px;color:var(--mute);font-size:1.1rem}
 .hero h1 span{display:block}
-.cta{display:flex;gap:14px;flex-wrap:wrap}
-.counts{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
-.counts b{display:block;font:800 1.9rem var(--display)}
-.counts small{color:var(--mute);font-size:.9rem}
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:124px;gap:12px}
-.tile{position:relative;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line);animation:drop .9s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*80ms)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.counts{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+.counts b{display:block;font:800 1.7rem var(--display)}
+.counts small{color:var(--mute);font-size:0.85rem}
+
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;gap:10px}
+.tile{position:relative;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line);animation:drop .9s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*80ms)}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .tile:hover img{transform:scale(1.06)}
 .tile.big{grid-column:span 2;grid-row:span 2}
-.badge{position:absolute;left:8px;bottom:8px;background:var(--ink);color:var(--bg);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:600}
-@keyframes drop{from{opacity:0;transform:translateY(-70px) rotate(-6deg) scale(.85)}to{opacity:1;transform:none}}
-section{padding:80px 0}
-.head{margin-bottom:34px}
-.head p{color:var(--mute);margin-top:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
-.item{background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.badge{position:absolute;left:6px;bottom:6px;background:var(--ink);color:var(--bg);border-radius:999px;padding:2px 9px;font-size:0.72rem;font-weight:600}
+@keyframes drop{from{opacity:0;transform:translateY(-50px) scale(.9)}to{opacity:1;transform:none}}
+
+section{padding:60px 0}
+.head{margin-bottom:28px}
+.head p{color:var(--mute);margin-top:8px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.item{background:var(--paper);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .item .ph{position:relative;aspect-ratio:4/3;background:#fff}
 .item .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.item .tx{padding:14px 16px 16px;font-weight:600;line-height:1.35}
-.more{margin-top:34px}
-.proof{display:grid;grid-template-columns:.8fr 1.6fr;gap:22px;align-items:stretch}
-.nums{display:grid;gap:16px}
-.num{background:var(--paper);border-radius:22px;padding:24px 28px;box-shadow:0 0 0 1px var(--line)}
-.num b{display:block;font:800 clamp(2.2rem,5vw,3.2rem) var(--display);letter-spacing:-.02em;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.num small{color:var(--mute)}
-.chart{background:var(--paper);border-radius:22px;padding:22px 24px 14px;box-shadow:0 0 0 1px var(--line)}
-.chart h3{font-size:1.05rem;margin-bottom:4px}
-.legend{display:flex;gap:18px;color:var(--mute);font-size:.88rem;margin-bottom:8px}
-.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.item .tx{padding:12px 14px 14px;font-weight:600;font-size:0.95rem;line-height:1.35}
+.more{margin-top:28px}
+
+.proof{display:grid;grid-template-columns:.9fr 1.5fr;gap:20px;align-items:stretch}
+.nums{display:grid;gap:14px}
+.num{background:var(--paper);border-radius:20px;padding:20px 24px;box-shadow:0 0 0 1px var(--line)}
+.num b{display:block;font:800 clamp(2rem,4vw,2.8rem) var(--display);letter-spacing:-.02em;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.num small{color:var(--mute);font-size:0.9rem}
+
+.chart{background:var(--paper);border-radius:20px;padding:20px 20px 12px;box-shadow:0 0 0 1px var(--line)}
+.chart h3{font-size:1rem;margin-bottom:4px}
+.legend{display:flex;gap:16px;color:var(--mute);font-size:0.85rem;margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .chart svg{width:100%;height:auto;display:block}
-.chart text{fill:var(--mute);font:500 11px var(--body)}
-.fine{color:var(--mute);font-size:.85rem;margin-top:14px}
-.shot{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#0E1022;padding:0;margin:0 0 20px;cursor:zoom-in}
+.chart text{fill:var(--mute);font:500 10px var(--body)}
+.fine{color:var(--mute);font-size:0.82rem;margin-top:12px}
+
+.shot{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0E1022;padding:0;margin:0 0 16px;cursor:zoom-in}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
 .shot:hover img{transform:scale(1.04)}
-dialog#lb{border:0;background:transparent;max-width:min(1000px,94vw);max-height:92vh;padding:0;overflow:auto}
-dialog#lb::backdrop{background:rgba(10,12,28,.82)}
-dialog#lb img{width:100%;height:auto;display:block;border-radius:14px;cursor:zoom-out}
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:n}
-.how .card{position:relative;padding-top:56px}
-.how .card::before{counter-increment:n;content:counter(n);position:absolute;top:20px;left:28px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font:800 .95rem var(--display);display:grid;place-items:center}
-.how .card p{margin:8px 0 0}
-.price{font:800 2rem var(--display);letter-spacing:-.02em;margin-top:6px}
-.price small{font:500 .95rem var(--body);color:var(--mute);letter-spacing:0}
-.faq{display:grid;gap:12px;max-width:820px}
-.faq details{background:var(--paper);border-radius:18px;padding:18px 24px;box-shadow:0 0 0 1px var(--line)}
-.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+
+dialog#lb{border:0;background:transparent;max-width:min(960px,92vw);max-height:90vh;padding:0;overflow:auto}
+dialog#lb::backdrop{background:rgba(10,12,28,.85)}
+dialog#lb img{width:100%;height:auto;display:block;border-radius:12px;cursor:zoom-out}
+
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:n}
+.how .card{position:relative;padding-top:52px}
+.how .card::before{counter-increment:n;content:counter(n);position:absolute;top:18px;left:24px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font:800 .9rem var(--display);display:grid;place-items:center}
+.how .card p{margin:8px 0 0;font-size:0.95rem}
+
+.price{font:800 1.8rem var(--display);letter-spacing:-.02em;margin-top:4px}
+.price small{font:500 .9rem var(--body);color:var(--mute);letter-spacing:0}
+
+/* Kotak Voucher Diskon */
+.voucher-box{background:linear-gradient(135deg, #FF4D8D, #6C63FF);color:#fff;border-radius:20px;padding:22px 28px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(255,77,141,0.25)}
+.voucher-box h4{font:800 1.2rem var(--display);margin-bottom:4px}
+.voucher-box p{font-size:0.92rem;opacity:.92;max-width:45ch}
+.code-tag{background:#fff;color:#14162E;font-family:var(--display);font-weight:800;font-size:1.15rem;padding:8px 16px;border-radius:12px;letter-spacing:.05em;box-shadow:0 4px 12px rgba(0,0,0,.15);flex:none;text-align:center}
+
+.faq{display:grid;gap:10px;max-width:800px}
+.faq details{background:var(--paper);border-radius:16px;padding:16px 20px;box-shadow:0 0 0 1px var(--line)}
+.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;font-size:0.98rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:800 1.3rem var(--display);color:var(--violet)}
+.faq summary::after{content:"+";font:800 1.2rem var(--display);color:var(--violet)}
 .faq details[open] summary::after{content:"−"}
-.faq p{color:var(--mute);margin-top:12px}
+.faq p{color:var(--mute);margin-top:10px;font-size:0.95rem}
 .faq a{color:var(--violet);font-weight:600}
 
-/* Floating WhatsApp */
-.wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:10px;background:#1FAF55;color:#fff;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .2s}
+/* Floating WhatsApp & Chat Popup */
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:8px;background:#1FAF55;color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s;font-size:0.92rem}
 .wa:hover{transform:translateY(-3px)}
-.wa svg{width:22px;height:22px;fill:#fff}
+.wa svg{width:20px;height:20px;fill:#fff}
 
-/* LIVE CHAT BUBBLE POPUP (Tanpa Gambar Profil, Pakai Ikon Chat Modern) */
 .chat-popup {
   position: fixed;
-  left: max(18px, env(safe-area-inset-left));
-  bottom: max(18px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
   z-index: 25;
   background: var(--paper);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 32px rgba(0,0,0,.15);
-  border-radius: 18px;
-  padding: 14px 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.15);
+  border-radius: 16px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  max-width: 320px;
+  gap: 12px;
+  max-width: 300px;
   text-decoration: none;
   color: var(--ink);
   transform: translateY(120px);
   opacity: 0;
   transition: transform 0.4s cubic-bezier(.2,.9,.3,1.2), opacity 0.4s ease;
 }
-.chat-popup.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-.chat-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--violet), var(--cyan));
-  display: grid;
-  place-items: center;
-  flex: none;
-}
-.chat-icon-box svg {
-  width: 22px;
-  height: 22px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 2.2;
-}
-.chat-popup .chat-info {
-  font-size: 0.9rem;
-  line-height: 1.35;
-}
-.chat-popup .chat-name {
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.chat-popup .chat-msg {
-  color: var(--mute);
-  font-size: 0.85rem;
-}
+.chat-popup.show { transform: translateY(0); opacity: 1; }
+.chat-icon-box { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--violet), var(--cyan)); display: grid; place-items: center; flex: none; }
+.chat-icon-box svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2.2; }
+.chat-popup .chat-info { font-size: 0.85rem; line-height: 1.35; }
+.chat-popup .chat-name { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+.chat-popup .chat-msg { color: var(--mute); font-size: 0.8rem; }
 
-/* KOTAK ALAT DIPERBESAR DAN JELAS */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
-.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ext .card{padding:26px}
+/* Kartu Alat Gratis */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ext .card{padding:24px}
 .ext h3{margin-bottom:6px}
-.ext p{margin:0}
-.ico{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;margin-bottom:20px;box-shadow:0 8px 20px rgba(108,99,255,0.25)}
-.ico svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ext p{margin:0;font-size:0.92rem}
+.ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;margin-bottom:16px;box-shadow:0 6px 16px rgba(108,99,255,0.2)}
+.ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-.pro{margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border-radius:28px;padding:34px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
-.pro p{color:var(--mute);margin-top:8px}
-.card{background:var(--paper);border-radius:28px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,.04), 0 0 0 1px var(--line);transition:transform .3s, box-shadow .3s}
-.card:hover{transform:-translateY(4px);box-shadow:0 12px 30px rgba(108,99,255,.12), 0 0 0 1px var(--violet)}
-.card p{color:var(--mute);margin:12px 0 24px;font-size:1.05rem}
-.card .free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:.9rem;padding:4px 14px;border-radius:999px;margin-bottom:14px}
+.pro{margin-top:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:30px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
+.pro p{color:var(--mute);margin-top:6px;font-size:0.95rem}
+.card{background:var(--paper);border-radius:24px;padding:30px;box-shadow:0 4px 18px rgba(0,0,0,.03), 0 0 0 1px var(--line)}
+.card p{color:var(--mute);margin:10px 0 20px;font-size:0.98rem}
+.card .free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:0.85rem;padding:3px 12px;border-radius:999px;margin-bottom:12px}
 
-.gate{margin-top:30px;background:var(--ink);color:var(--bg);border-radius:28px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-.gate p{opacity:.78;margin-top:10px}
+/* KOTAK GATE SYARAT */
+.gate{margin-top:30px;background:linear-gradient(135deg, #14162E, #1F2448);color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:1.1fr 1.2fr;gap:30px;align-items:center;border:2px solid var(--cyan);box-shadow:0 12px 35px rgba(39,195,240,.2)}
+.gate h3{color:#fff;font-size:1.6rem}
+.gate p{color:#AAB0E0;margin-top:8px;font-size:1.02rem}
 .steps{display:grid;gap:12px}
-.step{display:flex;align-items:center;gap:14px;border:2px solid rgba(255,255,255,.28);border-radius:16px;padding:14px 18px;background:transparent;color:inherit;font:600 1rem var(--body);cursor:pointer;text-align:left;width:100%}
-.step:hover{border-color:var(--cyan)}
-.step i{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:.9rem}
-.step.done{border-color:var(--ok)}
+
+.step{display:flex;align-items:center;gap:14px;border:2px solid #3F477D;border-radius:16px;padding:14px 20px;background:rgba(255,255,255,0.06);color:#fff;font:700 1.05rem var(--body);cursor:pointer;text-align:left;width:100%;transition:all .2s}
+.step:hover{border-color:var(--cyan);background:rgba(39,195,240,0.12);transform:translateY(-2px)}
+.step i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--cyan);color:var(--cyan);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:0.95rem}
+.step.done{border-color:var(--ok);background:rgba(31,175,133,0.15)}
 .step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
-.note{font-size:.85rem;opacity:.7;margin-top:4px}
-.buy{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--paper);border-radius:32px;padding:48px;box-shadow:0 0 0 1px var(--line)}
-.buy p{color:var(--mute);margin-top:12px}
-footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media (max-width:900px){.hero,.tools,.gate,.buy,.pro,.ext,.proof,.how{grid-template-columns:1fr}.wa span{display:none}.wa{padding:14px}.gate,.buy,.pro{padding:28px}nav .links a:not(.btn){display:none}}
+.note{font-size:0.9rem;color:#FFD166;margin-top:8px;font-weight:600}
+
+.buy{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--paper);border-radius:28px;padding:38px;box-shadow:0 0 0 1px var(--line)}
+.buy p{color:var(--mute);margin-top:10px;font-size:0.98rem}
+footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:900px){
+  .hero,.tools,.gate,.buy,.pro,.ext,.proof,.how{grid-template-columns:1fr}
+  .wa span{display:none}
+  .wa{padding:12px;border-radius:50%}
+  .gate,.buy,.pro,.voucher-box{grid-template-columns:1fr;padding:24px;text-align:center}
+  .voucher-box{flex-direction:column}
+  nav .links a:not(.btn){display:none}
+  body{font-size:15px}
+  .wrap{padding:0 16px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -218,7 +221,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
       </div>
       <div class="counts">
         <div><b>214</b><small>unduhan tahun ini</small></div>
-        <div><b>$186,63</b><small>pendapatan Adobe Stock</small></div>
+        <div><b>$186,63</b><small>pendapatan Adobe</small></div>
         <div><b>4</b><small>alat web gratis</small></div>
       </div>
     </div>
@@ -256,9 +259,9 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
   <div class="wrap">
     <div class="head"><h2>Cara kerjanya, 3 langkah</h2><p>Dari ide sampai siap unggah ke platform microstock.</p></div>
     <div class="how">
-      <div class="card"><h3>Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt yang mendekati aslinya. Bisa juga bertanya ke AI favorit Anda.</p></div>
+      <div class="card"><h3>Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt yang mendekati aslinya.</p></div>
       <div class="card"><h3>Generate di ZK Vector</h3><p>Tempel prompt ke ZK Vector. Generate satu per satu atau sekaligus (batch), hasilnya dikemas rapi dalam file ZIP.</p></div>
-      <div class="card"><h3>Beri metadata lalu unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword. Gambar dan video sama-sama didukung. Setelah itu unggah ke platform tujuan Anda.</p></div>
+      <div class="card"><h3>Beri metadata lalu unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword. Gambar dan video sama-sama didukung.</p></div>
     </div>
   </div>
 </section>
@@ -266,48 +269,64 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
 <section id="alat">
   <div class="wrap">
     <div class="head"><h2>Alat gratis untuk kontributor</h2><p>Dibuat untuk mempercepat kerja unggah microstock. Gratis dipakai; versi tanpa iklan ada di ZK Pro.</p></div>
-    <div class="tools">
+    
+    <!-- KOTAK GATE SYARAT -->
+    <div class="gate">
+      <div>
+        <h3>🔓 Buka Semua Alat Gratis Sekarang!</h3>
+        <p>Selesaikan 2 langkah mudah di samping (Cukup klik tombol 1 & 2). Setelah selesai, tombol alat di bawah akan otomatis aktif dan bisa langsung dipakai sepuasnya!</p>
+      </div>
+      <div class="steps">
+        <button class="step" id="sTik"><i>1</i>📱 Ikuti TikTok @ironmenine</button>
+        <button class="step" id="sWa"><i>2</i>💬 Gabung Grup WhatsApp Kontributor</button>
+        <span class="note" id="gateNote">⚠️ Tombol alat di bawah masih terkunci. Silakan klik langkah 1 & 2 di atas untuk membuka!</span>
+      </div>
+    </div>
+
+    <div class="tools" style="margin-top: 30px;">
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
         <button class="shot" data-src="aset/zk-metadata.jpg" aria-label="Perbesar tangkapan layar ZK Metadata"><img src="aset/zk-metadata.jpg" alt="Tampilan ZK Metadata" loading="lazy"></button>
         <span class="free">Gratis</span>
         <h3>ZK Metadata</h3>
-        <p>AI membaca gambar atau video, lalu menyusun title, deskripsi, dan keyword berperingkat. Ekspor CSV per platform dan sematkan metadata ke file.</p>
-        <a class="btn grad" id="tMeta" aria-disabled="true" href="#alat">Buka ZK Metadata</a>
+        <p>AI membaca gambar atau video, lalu menyusun title, deskripsi, dan keyword berperingkat. Ekspor CSV per platform.</p>
+        <a class="btn grad" id="tMeta" aria-disabled="true" href="#alat">🔒 Buka ZK Metadata</a>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
         <button class="shot" data-src="aset/zk-prompt.jpg" aria-label="Perbesar tangkapan layar ZK Prompt Generator"><img src="aset/zk-prompt.jpg" alt="Tampilan ZK Prompt Generator" loading="lazy"></button>
         <span class="free">Gratis</span>
         <h3>ZK Prompt Generator</h3>
-        <p>Ubah gambar atau video jadi prompt siap pakai untuk generator gambar dan video AI. Bisa banyak file sekaligus.</p>
-        <a class="btn grad" id="tPrompt" aria-disabled="true" href="#alat">Buka ZK Prompt</a>
+        <p>Ubah gambar atau video jadi prompt siap pakai untuk generator gambar dan video AI.</p>
+        <a class="btn grad" id="tPrompt" aria-disabled="true" href="#alat">🔒 Buka ZK Prompt</a>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 10h18M8 2.5v4M16 2.5v4"/><circle cx="8.5" cy="15" r="1" fill="#fff"/><circle cx="12" cy="15" r="1" fill="#fff"/><circle cx="15.5" cy="15" r="1" fill="#fff"/></svg></div>
         <span class="free">Gratis</span>
         <h3>ZK Calendar</h3>
-        <p>Kalender microstock untuk melihat momen dan musim yang dicari pembeli, supaya aset diunggah tepat waktu.</p>
-        <a class="btn grad" id="tCal" aria-disabled="true" href="#alat">Buka ZK Calendar</a>
+        <p>Kalender microstock untuk melihat momen dan musim yang dicari pembeli.</p>
+        <a class="btn grad" id="tCal" aria-disabled="true" href="#alat">🔒 Buka ZK Calendar</a>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div>
         <span class="free">Gratis</span>
         <h3>ZK Motion Studio</h3>
-        <p>Buat animasi motion graphics dari gambar dan prompt, lalu ekspor untuk video. Berjalan langsung di browser.</p>
-        <a class="btn grad" id="tMot" aria-disabled="true" href="#alat">Buka ZK Motion</a>
+        <p>Buat animasi motion graphics dari gambar dan prompt, lalu ekspor untuk video.</p>
+        <a class="btn grad" id="tMot" aria-disabled="true" href="#alat">🔒 Buka ZK Motion</a>
       </div>
     </div>
-    <div class="gate">
-      <div><h3>Buka semua alat dengan 2 langkah</h3><p>Klik tiap langkah, selesaikan di tab yang terbuka, lalu tombol alat di atas aktif.</p></div>
-      <div class="steps">
-        <button class="step" id="sTik"><i>1</i>Ikuti TikTok @ironmenine</button>
-        <button class="step" id="sWa"><i>2</i>Gabung grup WhatsApp</button>
-        <span class="note" id="gateNote"></span>
+
+    <!-- KOTAK PROMO VOUCHER KHUSUS -->
+    <div class="voucher-box">
+      <div>
+        <h4>🎟️ Spesial Diskon ZK Pro & Tools!</h4>
+        <p>Gunakan kode voucher khusus saat pembelian di Lynk.id untuk mendapatkan potongan harga langsung sebesar Rp5.000!</p>
       </div>
+      <div class="code-tag">ZKGRATIS</div>
     </div>
+
     <div class="pro" id="pro">
-      <div><span class="free">ZK Pro</span><h3>Bebas iklan, generate gambar tanpa batas</h3><div class="price">Rp35.000</div><p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas. Pembelian lewat Lynk.id.</p></div>
+      <div><span class="free">ZK Pro</span><h3>Bebas iklan, generate gambar tanpa batas</h3><div class="price">Rp35.000</div><p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas.</p></div>
       <a class="btn" data-link="lynk" href="#">Beli ZK Pro</a>
     </div>
   </div>
@@ -315,11 +334,11 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
 
 <section id="ekstensi">
   <div class="wrap">
-    <div class="head"><h2>Ekstensi otomatis untuk kontributor</h2><p>Ekstensi browser untuk mempercepat pekerjaan berulang di platform stock. Tersedia lewat Lynk.id.</p></div>
+    <div class="head"><h2>Ekstensi otomatis untuk kontributor</h2><p>Ekstensi browser untuk mempercepat pekerjaan berulang di platform stock.</p></div>
     <div class="ext">
       <div class="card"><h3>Adobe Stock</h3><p>Ekstensi otomatis untuk halaman kontributor Adobe Stock.</p></div>
       <div class="card"><h3>Pngtree</h3><p>Ekstensi otomatis untuk halaman unggah Pngtree.</p></div>
-      <div class="card"><h3>Shutterstock</h3><p>Ekstensi otomatis untuk Shutterstock, dengan pilihan AI Gemini, Groq, atau Cioara.</p></div>
+      <div class="card"><h3>Shutterstock</h3><p>Ekstensi otomatis untuk Shutterstock.</p></div>
     </div>
     <div class="more"><a class="btn grad" data-link="lynk" href="#">Lihat ekstensi di Lynk.id</a></div>
   </div>
@@ -329,10 +348,11 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
   <div class="wrap">
     <div class="head"><h2>Pertanyaan yang sering masuk</h2></div>
     <div class="faq">
-      <details><summary>Apakah saya perlu API key sendiri?</summary><p>Ya, alat memakai API key Gemini milik Anda, dan membuatnya gratis. Saya sediakan video panduan langkah demi langkah. <a data-link="guideApi" href="#">Tonton panduan API key</a></p></details>
+      <details><summary>Bagaimana cara pakai voucher diskon Rp5.000?</summary><p>Cukup masukkan kode voucher <b>ZKGRATIS</b> saat melakukan *checkout* atau pembelian produk ZK Pro / ekstensi di halaman pembayaran Lynk.id.</p></details>
+      <details><summary>Apakah saya perlu API key sendiri?</summary><p>Ya, alat memakai API key Gemini milik Anda, dan membuatnya gratis. <a data-link="guideApi" href="#">Tonton panduan API key</a></p></details>
       <details><summary>Bagaimana cara memasang ekstensi?</summary><p>Ada video panduan untuk pemasangan di komputer maupun HP. <a data-link="guideExt" href="#">Tonton panduan pemasangan</a></p></details>
-      <details><summary>Apakah data dan API key saya aman?</summary><p>Alat berjalan langsung di browser Anda tanpa server milik kami, jadi API key tidak dikirim ke kami. Tetap jaga API key Anda dan jangan dibagikan ke orang lain.</p></details>
-      <details><summary>Apa bedanya versi gratis dan Pro?</summary><p>Versi gratis memakai iklan dan tetap aman dipakai. ZK Pro bebas iklan dan menyertakan generate gambar tanpa batas lewat ZK Vector.</p></details>
+      <details><summary>Apakah data dan API key saya aman?</summary><p>Alat berjalan langsung di browser Anda tanpa server milik kami, jadi API key tidak dikirim ke kami.</p></details>
+      <details><summary>Apa bedanya versi gratis dan Pro?</summary><p>Versi gratis memakai iklan. ZK Pro bebas iklan dan menyertakan generate gambar tanpa batas.</p></details>
       <details><summary>Bagaimana kalau saya mengalami kendala?</summary><p>Gabung grup WhatsApp untuk diskusi langsung, atau kirim pesan lewat TikTok @ironmenine.</p></details>
     </div>
   </div>
@@ -341,31 +361,20 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justi
 <section>
   <div class="wrap">
     <div class="buy">
-      <div><h2>Belajar bareng, bukan sendirian</h2><p>Grup WhatsApp ini masih kecil. Justru karena itu dibuat sebagai ruang untuk saling berbagi tips dan berdiskusi seputar microstock.</p></div>
+      <div><h2>Belajar bareng, bukan sendirian</h2><p>Grup WhatsApp ini sebagai ruang untuk saling berbagi tips dan berdiskusi seputar microstock.</p></div>
       <div class="cta"><a class="btn grad" data-link="wa" href="#">Gabung grup WhatsApp</a></div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="buy">
-      <div><h2>Butuh aset lengkap?</h2><p>Semua aset dan paket tersedia di Lynk.id. Update dan tips microstock rutin di TikTok.</p></div>
-      <div class="cta"><a class="btn grad" data-link="lynk" href="#">Beli di Lynk.id</a><a class="btn alt" data-link="tiktok" href="#">TikTok</a></div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><footer><span>© 2026 ZK Creative Studio</span><span>Aset ditampilkan sebagai pratinjau.</span></footer></div>
+<div class="wrap"><footer><span>© 2026 ZK Creative Studio</span><span>zkcreativestudio.my.id</span></footer></div>
 
 <!-- Floating WhatsApp -->
 <a class="wa" data-link="wa" href="#" aria-label="Chat grup WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2 1.300 2.300 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.400z"/></svg><span>Tanya di WhatsApp</span></a>
 
-<!-- POPUP CHAT NOTIFICATION (Tanpa Gambar Profil, Bersih & Elegan) -->
+<!-- POPUP CHAT NOTIFICATION -->
 <a id="chatPopup" class="chat-popup" href="https://www.tiktok.com/@ironmenine" target="_blank" rel="noopener">
-  <div class="chat-icon-box">
-    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-  </div>
+  <div class="chat-icon-box"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
   <div class="chat-info">
     <div class="chat-name"><span id="chatUser"></span> <span style="font-size:0.75rem; color:var(--ok);">● Baru saja</span></div>
     <div class="chat-msg" id="chatText">Mengambil alat gratis...</div>
@@ -457,10 +466,19 @@ function paint(){
   document.querySelectorAll(".step i").forEach((i,n)=>{i.textContent=(n?st.wa:st.tik)?"✓":n+1});
   const open=st.tik&&st.wa;
   [["tMeta",C.metadata],["tPrompt",C.prompt],["tCal",C.calendar],["tMot",C.motion]].forEach(([id,u])=>{
-    const b=document.getElementById(id);b.setAttribute("aria-disabled",!open);
-    if(open){b.href=u;b.target="_blank";b.rel="noopener"}else{b.href="#alat";b.removeAttribute("target")}
+    const b=document.getElementById(id);
+    b.setAttribute("aria-disabled",!open);
+    if(open){
+      b.href=u;
+      b.target="_blank";
+      b.rel="noopener";
+      b.innerHTML = b.innerHTML.replace("🔒", "🚀");
+    }else{
+      b.href="#alat";
+      b.removeAttribute("target");
+    }
   });
-  document.getElementById("gateNote").textContent=open?"Semua alat terbuka. Selamat berkarya!":"Selesaikan kedua langkah untuk membuka alat.";
+  document.getElementById("gateNote").textContent=open?"🎉 Selamat! Semua alat gratis sudah terbuka dan siap digunakan!":"⚠️ Tombol alat di bawah masih terkunci. Silakan klik langkah 1 & 2 di atas untuk membuka!";
   try{localStorage.setItem("zkgate",JSON.stringify(st))}catch(e){}
 }
 document.getElementById("sTik").onclick=()=>{window.open(C.tiktok,"_blank","noopener");st.tik=true;paint()};
