@@ -1,412 +1,268 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>ZK Creative Studio — Aset Microstock & Alat Gratis untuk Kontributor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZK Creative Studio — Alat Microstock Gratis dan Produk untuk Kontributor</title>
 <meta property="og:title" content="ZK Creative Studio — Aset Microstock dan Alat Gratis">
 <meta property="og:description" content="Aset stock yang sudah laku di Adobe Stock, plus alat gratis untuk kontributor microstock.">
 <meta property="og:type" content="website">
 <meta name="description" content="Aset vektor dan foto microstock, plus alat gratis ZK Metadata dan ZK Prompt Generator untuk kontributor stock.">
-<link rel="icon" href="aset/logo.jpg">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#EDEEF8;--paper:#FAFAFF;--ink:#14162E;--mute:#5C6182;--line:#D6D9EE;--violet:#6C63FF;--cyan:#27C3F0;--ok:#1FAF85;
+:root{--bg1:#EEF0FC;--bg2:#DCE1FF;--bg3:#CFEEFB;--bg:#EDEEF8;--paper:#FAFAFF;--ink:#14162E;--mute:#5C6182;--line:#D6D9EE;--violet:#6C63FF;--cyan:#27C3F0;--ok:#1FAF85;
 --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0E1022;--paper:#181B36;--ink:#EEF0FF;--mute:#9CA2C8;--line:#2A2E55}}
+@media (prefers-color-scheme:dark){:root{--bg1:#0E1022;--bg2:#1A1C4C;--bg3:#0F2F47;--bg:#0E1022;--paper:#181B36;--ink:#EEF0FF;--mute:#9CA2C8;--line:#2A2E55}}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:radial-gradient(900px 620px at 8% 0,rgba(108,99,255,.30),transparent 62%) top/100% 1100px no-repeat,radial-gradient(800px 560px at 96% 4%,rgba(39,195,240,.28),transparent 62%) top/100% 1100px no-repeat,linear-gradient(180deg,var(--bg1) 0,var(--bg2) 38%,var(--bg3) 72%,var(--bg1) 100%);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
-h1{font-size:clamp(2.3rem, 5.5vw, 4.8rem);font-weight:800}
-h2{font-size:clamp(1.7rem, 3.5vw, 2.7rem);font-weight:800}
-h3{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(2.2rem,5vw,4rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800}
+h3{font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
 p{max-width:62ch}
-
-/* Navigasi */
-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;position:relative;z-index:10}
-.logo{font:800 1.1rem var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo img{width:34px;height:34px;border-radius:10px;object-fit:cover}
-nav .links{display:flex;gap:20px;align-items:center;font-weight:500;font-size:0.95rem}
-nav .links a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font:800 1.2rem var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo img{width:36px;height:36px;border-radius:10px}
+nav .links{display:flex;gap:26px;align-items:center;font-weight:500}
+nav .links a{text-decoration:none;color:var(--mute)}
 nav .links a:hover{color:var(--ink)}
-
-.btn{display:inline-block;background:var(--ink);color:var(--bg)!important;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:var(--body);font-size:0.95rem;text-align:center}
+.btn{display:inline-block;background:var(--ink);color:var(--bg)!important;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:var(--body);font-size:1rem}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px var(--violet)}
 .btn.alt{background:transparent;color:var(--ink)!important}
 .btn.grad{background:linear-gradient(135deg,var(--violet),var(--cyan));border-color:transparent;color:#fff!important}
-
-@keyframes blinkGlow {
-  0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.7); transform: scale(1); }
-  50% { box-shadow: 0 0 22px 8px rgba(39, 195, 240, 0.9); transform: scale(1.02); }
-  100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); transform: scale(1); }
-}
-.btn.blink { animation: blinkGlow 2s infinite ease-in-out; }
-.btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none;background:#717696;border-color:#717696;color:#fff!important}
-
-/* Hero Section */
-.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;padding:20px 0 50px}
-.hero p{margin:18px 0 26px;color:var(--mute);font-size:1.1rem}
+.btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:30px 0 28px}
+.hero p{margin:22px 0 30px;color:var(--mute);font-size:1.15rem}
 .hero h1 span{display:block}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.counts{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
-.counts b{display:block;font:800 1.7rem var(--display)}
-.counts small{color:var(--mute);font-size:0.85rem}
-
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;gap:10px}
-.tile{position:relative;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line);animation:drop .9s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*80ms)}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.counts{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
+.counts b{display:block;font:800 1.9rem var(--display)}
+.counts small{color:var(--mute);font-size:.9rem}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:124px;gap:12px}
+.tile{position:relative;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line);animation:drop .9s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*80ms)}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .tile:hover img{transform:scale(1.06)}
+.tile.wide{grid-column:1/-1;background:linear-gradient(135deg,#6C63FF,#27C3F0);display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;font-weight:600;line-height:1.35}
+.tile.wide img{width:52px;height:52px;border-radius:14px;flex:none}
 .tile.big{grid-column:span 2;grid-row:span 2}
-.badge{position:absolute;left:6px;bottom:6px;background:var(--ink);color:var(--bg);border-radius:999px;padding:2px 9px;font-size:0.72rem;font-weight:600}
-@keyframes drop{from{opacity:0;transform:translateY(-50px) scale(.9)}to{opacity:1;transform:none}}
-
-section{padding:50px 0}
-.head{margin-bottom:28px}
-.head p{color:var(--mute);margin-top:8px}
-
-/* Kotak Alat Gratis & Gate di Atas */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:var(--paper);border-radius:24px;padding:30px;box-shadow:0 4px 18px rgba(0,0,0,.03), 0 0 0 1px var(--line)}
-.card p{color:var(--mute);margin:10px 0 20px;font-size:0.98rem}
-.card .free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:0.85rem;padding:3px 12px;border-radius:999px;margin-bottom:12px}
-
-.gate{background:linear-gradient(135deg, #14162E, #1F2448);color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:1.1fr 1.2fr;gap:30px;align-items:center;border:2px solid var(--cyan);box-shadow:0 12px 35px rgba(39,195,240,.2);margin-bottom:30px}
-.gate h3{color:#fff;font-size:1.6rem}
-.gate p{color:#AAB0E0;margin-top:8px;font-size:1.02rem}
-.steps{display:grid;gap:12px}
-
-.step{display:flex;align-items:center;gap:14px;border:2px solid #3F477D;border-radius:16px;padding:14px 20px;background:rgba(255,255,255,0.06);color:#fff;font:700 1.05rem var(--body);cursor:pointer;text-align:left;width:100%;transition:all .2s}
-.step:hover{border-color:var(--cyan);background:rgba(39,195,240,0.12);transform:translateY(-2px)}
-.step i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--cyan);color:var(--cyan);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:0.95rem}
-.step.done{border-color:var(--ok);background:rgba(31,175,133,0.15)}
-.step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
-.note{font-size:0.9rem;color:#FFD166;margin-top:8px;font-weight:600}
-
-/* Ekstensi dengan Ikon Vektor */
-.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ext .card{padding:28px}
-.ext h3{margin-bottom:6px}
-.ext p{margin:0;font-size:0.92rem}
-.ext-ico{width:50px;height:50px;border-radius:14px;background:var(--ink);display:grid;place-items:center;margin-bottom:16px}
-.ext-ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* Kotak Voucher Diskon */
-.voucher-box{background:linear-gradient(135deg, #FF4D8D, #6C63FF);color:#fff;border-radius:20px;padding:22px 28px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(255,77,141,0.25)}
-.voucher-box h4{font:800 1.2rem var(--display);margin-bottom:4px}
-.voucher-box p{font-size:0.92rem;opacity:.92;max-width:45ch}
-.code-tag{background:#fff;color:#14162E;font-family:var(--display);font-weight:800;font-size:1.15rem;padding:8px 16px;border-radius:12px;letter-spacing:.05em;box-shadow:0 4px 12px rgba(0,0,0,.15);flex:none;text-align:center}
-
-.pro{margin-top:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:30px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
-.pro p{color:var(--mute);margin-top:6px;font-size:0.95rem}
-.price{font:800 1.8rem var(--display);letter-spacing:-.02em;margin-top:4px}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.item{background:var(--paper);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.badge{position:absolute;left:8px;bottom:8px;background:var(--ink);color:var(--bg);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:600}
+@keyframes drop{from{opacity:0;transform:translateY(-70px) rotate(-6deg) scale(.85)}to{opacity:1;transform:none}}
+section{padding:52px 0}
+.head{margin-bottom:34px}
+.head p{color:var(--mute);margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.item{background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .item .ph{position:relative;aspect-ratio:4/3;background:#fff}
 .item .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.item .tx{padding:12px 14px 14px;font-weight:600;font-size:0.95rem;line-height:1.35}
-.more{margin-top:28px}
-
-.proof{display:grid;grid-template-columns:.9fr 1.5fr;gap:20px;align-items:stretch}
-.nums{display:grid;gap:14px}
-.num{background:var(--paper);border-radius:20px;padding:20px 24px;box-shadow:0 0 0 1px var(--line)}
-.num b{display:block;font:800 clamp(2rem,4vw,2.8rem) var(--display);letter-spacing:-.02em;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.num small{color:var(--mute);font-size:0.9rem}
-
-.chart{background:var(--paper);border-radius:20px;padding:20px 20px 12px;box-shadow:0 0 0 1px var(--line)}
-.chart h3{font-size:1rem;margin-bottom:4px}
-.legend{display:flex;gap:16px;color:var(--mute);font-size:0.85rem;margin-bottom:6px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.item .tx{padding:14px 16px 16px;font-weight:600;line-height:1.35}
+.more{margin-top:34px}
+.proof{display:grid;grid-template-columns:.8fr 1.6fr;gap:22px;align-items:stretch}
+.nums{display:grid;gap:16px}
+.num{background:var(--paper);border-radius:22px;padding:24px 28px;box-shadow:0 0 0 1px var(--line)}
+.num b{display:block;font:800 clamp(2.2rem,5vw,3.2rem) var(--display);letter-spacing:-.02em;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.num small{color:var(--mute)}
+.chart{background:var(--paper);border-radius:22px;padding:22px 24px 14px;box-shadow:0 0 0 1px var(--line)}
+.chart h3{font-size:1.05rem;margin-bottom:4px}
+.legend{display:flex;gap:18px;color:var(--mute);font-size:.88rem;margin-bottom:8px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .chart svg{width:100%;height:auto;display:block}
-.chart text{fill:var(--mute);font:500 10px var(--body)}
-.fine{color:var(--mute);font-size:0.82rem;margin-top:12px}
-
-.shot{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0E1022;padding:0;margin:0 0 16px;cursor:zoom-in}
+.chart text{fill:var(--mute);font:500 11px var(--body)}
+.fine{color:var(--mute);font-size:.85rem;margin-top:14px}
+.shot{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#0E1022;padding:0;margin:0 0 20px;cursor:zoom-in}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
 .shot:hover img{transform:scale(1.04)}
-
-dialog#lb{border:0;background:transparent;max-width:min(960px,92vw);max-height:90vh;padding:0;overflow:auto}
-dialog#lb::backdrop{background:rgba(10,12,28,.85)}
-dialog#lb img{width:100%;height:auto;display:block;border-radius:12px;cursor:zoom-out}
-
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:n}
-.how .card{position:relative;padding-top:52px}
-.how .card::before{counter-increment:n;content:counter(n);position:absolute;top:18px;left:24px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font:800 .9rem var(--display);display:grid;place-items:center}
-.how .card p{margin:8px 0 0;font-size:0.95rem}
-
-.faq{display:grid;gap:10px;max-width:800px}
-.faq details{background:var(--paper);border-radius:16px;padding:16px 20px;box-shadow:0 0 0 1px var(--line)}
-.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;font-size:0.98rem}
+dialog#lb{border:0;background:transparent;max-width:min(1000px,94vw);max-height:92vh;padding:0;overflow:auto}
+dialog#lb::backdrop{background:rgba(10,12,28,.82)}
+dialog#lb img{width:100%;height:auto;display:block;border-radius:14px;cursor:zoom-out}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:n}
+.how .card{position:relative;padding-top:56px}
+.how .card::before{counter-increment:n;content:counter(n);position:absolute;top:20px;left:28px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font:800 .95rem var(--display);display:grid;place-items:center}
+.how .card p{margin:8px 0 0}
+.price{font:800 2rem var(--display);letter-spacing:-.02em;margin-top:6px}
+.price small{font:500 .95rem var(--body);color:var(--mute);letter-spacing:0}
+.faq{display:grid;gap:12px;max-width:820px}
+.faq details{background:var(--paper);border-radius:18px;padding:18px 24px;box-shadow:0 0 0 1px var(--line)}
+.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:800 1.2rem var(--display);color:var(--violet)}
+.faq summary::after{content:"+";font:800 1.3rem var(--display);color:var(--violet)}
 .faq details[open] summary::after{content:"−"}
-.faq p{color:var(--mute);margin-top:10px;font-size:0.95rem}
+.faq p{color:var(--mute);margin-top:12px}
 .faq a{color:var(--violet);font-weight:600}
-
-/* Floating WhatsApp & Chat Popup */
-.wa{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:8px;background:#1FAF55;color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s;font-size:0.92rem}
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:10px;background:#1FAF55;color:#fff;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .2s}
 .wa:hover{transform:translateY(-3px)}
-.wa svg{width:20px;height:20px;fill:#fff}
-
-.chat-popup {
-  position: fixed;
-  left: max(16px, env(safe-area-inset-left));
-  bottom: max(16px, env(safe-area-inset-bottom));
-  z-index: 25;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 28px rgba(0,0,0,.15);
-  border-radius: 16px;
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 300px;
-  text-decoration: none;
-  color: var(--ink);
-  transform: translateY(120px);
-  opacity: 0;
-  transition: transform 0.4s cubic-bezier(.2,.9,.3,1.2), opacity 0.4s ease;
-}
-.chat-popup.show { transform: translateY(0); opacity: 1; }
-.chat-icon-box { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--violet), var(--cyan)); display: grid; place-items: center; flex: none; }
-.chat-icon-box svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2.2; }
-.chat-popup .chat-info { font-size: 0.85rem; line-height: 1.35; }
-.chat-popup .chat-name { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; }
-.chat-popup .chat-msg { color: var(--mute); font-size: 0.8rem; }
-
-.ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;margin-bottom:16px;box-shadow:0 6px 16px rgba(108,99,255,0.2)}
-.ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-
-.buy{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--paper);border-radius:28px;padding:38px;box-shadow:0 0 0 1px var(--line)}
-.buy p{color:var(--mute);margin-top:10px;font-size:0.98rem}
-footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
-@media (max-width:900px){
-  .hero,.tools,.gate,.buy,.pro,.ext,.proof,.how{grid-template-columns:1fr}
-  .wa span{display:none}
-  .wa{padding:12px;border-radius:50%}
-  .gate,.buy,.pro,.voucher-box{grid-template-columns:1fr;padding:24px;text-align:center}
-  .voucher-box{flex-direction:column}
-  nav .links a:not(.btn){display:none}
-  body{font-size:15px}
-  .wrap{padding:0 16px}
-}
+.wa svg{width:22px;height:22px;fill:#fff}
+.up{font-size:.88rem;margin:12px 0 0!important}.up a{color:var(--violet);font-weight:600}
+.sub{font:800 1.25rem var(--display);margin:38px 0 14px}
+.sub:first-child{margin-top:0}
+.prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.prod{--c:#6C63FF;background:var(--paper);border-radius:22px;padding:26px;box-shadow:0 0 0 1px var(--line);border-top:6px solid var(--c);display:flex;flex-direction:column}
+.c-g{--c:#1FAF85}.c-o{--c:#F05A3C}
+.prod h3{margin-bottom:8px}
+.prod p{color:var(--mute);margin:0 0 18px;flex:1}
+.pr{font:800 1.7rem var(--display);color:var(--c);margin-bottom:16px;letter-spacing:-.02em}
+.opts{display:grid;gap:8px;margin-bottom:18px}
+.opts div{display:flex;justify-content:space-between;gap:10px;border:2px solid var(--line);border-radius:12px;padding:9px 14px;font-weight:600}
+.opts div b{font-family:var(--display);color:var(--c)}
+.opts .best{border-color:var(--c)}
+.opts span{white-space:nowrap}
+.opts em{white-space:nowrap;font:600 .72rem var(--body);font-style:normal;background:var(--c);color:#fff;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:2px}
+.prod.soon{opacity:.6}
+.pstrip{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:6px 0 10px}
+.pstrip span{color:var(--mute);font-weight:600;margin-right:4px}
+.pstrip a{background:var(--paper);box-shadow:0 0 0 1px var(--line);border-radius:999px;padding:7px 16px;font-weight:600;text-decoration:none;font-size:.92rem;transition:box-shadow .2s}
+.pstrip a:hover{box-shadow:0 0 0 2px var(--violet)}
+.pstrip a.all{background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;box-shadow:none}
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:14px}
+.mini{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.mini img{width:100%;height:100%;object-fit:cover;display:block}
+.mini .badge{left:6px;bottom:6px;padding:1px 9px;font-size:.72rem}
+.num{padding:16px 22px!important}
+.num b{font-size:clamp(1.8rem,4vw,2.4rem)!important}
+.lang{display:flex;border:2px solid var(--line);border-radius:999px;padding:3px;background:var(--paper)}
+.lang button{border:0;background:transparent;font:600 .85rem var(--body);padding:5px 13px;border-radius:999px;color:var(--mute);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ext .card{padding:26px}
+.ext h3{margin-bottom:6px}
+.ext p{margin:0}
+.ico{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;margin-bottom:18px}
+.ico svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pro{margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border-radius:28px;padding:34px;border:2px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--violet),var(--cyan)) border-box}
+.pro p{color:var(--mute);margin-top:8px}
+.card{background:var(--paper);border-radius:26px;padding:32px;box-shadow:0 0 0 1px var(--line)}
+.card p{color:var(--mute);margin:10px 0 22px}
+.free{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;font-weight:600;font-size:.85rem;padding:3px 12px;border-radius:999px;margin-bottom:14px}
+.gate{margin-top:18px;background:var(--ink);color:var(--bg);border-radius:28px;padding:24px 30px;display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:center}
+.gate p{opacity:.78;margin-top:10px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.step{display:flex;align-items:center;gap:14px;border:2px solid rgba(255,255,255,.28);border-radius:16px;padding:14px 18px;background:transparent;color:inherit;font:600 1rem var(--body);cursor:pointer;text-align:left;width:100%}
+.step:hover{border-color:var(--cyan)}
+.step i{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:.9rem}
+.step.done{border-color:var(--ok)}
+.step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
+.note{grid-column:1/-1;font-size:.85rem;opacity:.7;margin-top:4px}
+.buy{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--paper);border-radius:32px;padding:48px;box-shadow:0 0 0 1px var(--line)}
+.buy p{color:var(--mute);margin-top:12px}
+footer{padding:30px 0 50px;color:var(--mute);font-size:.92rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.hero,.tools,.gate,.buy,.pro,.ext,.proof,.how{grid-template-columns:1fr}.wa span{display:none}.wa{padding:14px}.steps{grid-template-columns:1fr}.strip{grid-template-columns:repeat(3,1fr)}.gate,.buy,.pro{padding:28px}nav .links a:not(.btn){display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZK Creative Studio","description":"Alat microstock gratis dan produk untuk kontributor stock.","sameAs":["https://www.tiktok.com/@ironmenine","https://lynk.id/sepuluhribudesign"]}</script>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <a class="logo" href="#"><img src="aset/logo.jpg" alt="Logo">ZK Creative Studio</a>
+    <a class="logo" href="#"><img src="logo.png" alt="">ZK Creative Studio</a>
     <div class="links">
       <a href="#alat">Alat gratis</a>
-      <a href="#ekstensi">Ekstensi</a>
-      <a href="#aset">Aset terlaris</a>
-      <a href="#hasil">Pendapatan</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn" data-link="lynk" href="#">Beli Pro</a>
+      <a href="#produk">Produk</a>
+      <a href="#hasil">Hasil</a>
+      <a href="#faq">Tanya jawab</a>
+      <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="id" aria-pressed="false">ID</button></div>
+      <a class="btn" href="#produk">Lihat produk</a>
     </div>
   </nav>
-
-  <!-- HERO SECTION -->
   <header class="hero">
     <div>
-      <h1><span>Aset stock</span><span>yang laku,</span><span>alat yang gratis.</span></h1>
-      <p>Vektor dan foto microstock yang sudah terjual di Adobe Stock, ditambah alat bantu otomatisasi metadata dan prompt untuk kontributor.</p>
+      <h1><span>Alat microstock</span><span>buatan kontributor,</span><span>hasilnya terbukti.</span></h1>
+      <p>Coba alat gratisnya dulu. Metadata, prompt, kalender, dan motion untuk kontributor microstock, dari orang yang portofolionya sendiri sudah laku di Adobe Stock.</p>
       <div class="cta">
-        <a class="btn grad blink" href="#alat">Ambil alat gratis</a>
-        <a class="btn alt" href="#aset">Lihat portofolio aset</a>
+        <a class="btn grad" href="#alat">Coba alat gratis</a>
+        <a class="btn alt" href="#produk">Lihat produk</a>
       </div>
       <div class="counts">
         <div><b>214</b><small>unduhan tahun ini</small></div>
-        <div><b>$186,63</b><small>pendapatan Adobe</small></div>
+        <div><b>$186,63</b><small>pendapatan Adobe Stock</small></div>
         <div><b>4</b><small>alat web gratis</small></div>
       </div>
     </div>
-    <div class="mosaic" id="hero" aria-label="Contoh aset"></div>
+    <div class="mosaic" id="hero" aria-label="Cuplikan alat gratis">
+      <div class="tile big" style="--i:0"><img src="aset/zk-metadata.jpg" alt="Tampilan ZK Metadata" style="object-position:top left"><span class="badge">ZK Metadata</span></div>
+      <div class="tile" style="--i:1"><img src="aset/zk-prompt.jpg" alt="Tampilan ZK Prompt Generator" style="object-position:top"><span class="badge">ZK Prompt</span></div>
+      <div class="tile" style="--i:2;background:#0A0C26"><img src="aset/lynk-banner.jpg" alt="Banner ZK Prompt Generator" style="object-fit:contain"><span class="badge">Di Lynk.id</span></div>
+      <div class="tile wide" style="--i:3"><img src="logo.png" alt=""><span>Metadata, Prompt, Calendar, dan Motion untuk kontributor microstock</span></div>
+    </div>
   </header>
+  <div class="pstrip"><span>Produk di Lynk.id:</span><a href="#produk">Metadata Rp25.000</a><a href="#produk">Vector Rp50.000</a><a href="#produk">Ekstensi Rp20.000</a><a href="#produk">Motion mulai Rp10.000</a><a class="all" href="#produk">Semua produk</a></div>
 </div>
 
-<!-- ========================================== -->
-<!-- URUTAN KEDUA: ALAT GRATIS & SYARAT (GATE)  -->
-<!-- ========================================== -->
 <section id="alat">
   <div class="wrap">
-    <div class="head">
-      <h2>Alat gratis untuk kontributor</h2>
-      <p>Dibuat khusus untuk mempercepat kerja unggah microstock. Buka kuncinya dengan 2 langkah di bawah!</p>
+    <div class="head"><h2>Alat gratis untuk kontributor</h2><p>Coba langsung tanpa daftar. ZK Prompt bebas dipakai, tiga alat lain terbuka setelah dua langkah singkat.</p></div>
+    <div class="tools">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div><button class="shot" data-src="aset/zk-metadata.jpg" aria-label="Perbesar tangkapan layar ZK Metadata"><img src="aset/zk-metadata.jpg" alt="Tampilan ZK Metadata" loading="lazy"></button><span class="free">Gratis</span><h3>ZK Metadata</h3><p>AI membaca gambar atau video, lalu menyusun title, deskripsi, dan keyword berperingkat. Ekspor CSV per platform dan sematkan metadata ke file.</p><a class="btn grad" id="tMeta" aria-disabled="true" href="#alat">Buka ZK Metadata</a><p class="up">Suka? <a data-link="lynk" href="#">Versi bebas iklan di Lynk.id</a></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div><button class="shot" data-src="aset/zk-prompt.jpg" aria-label="Perbesar tangkapan layar ZK Prompt Generator"><img src="aset/zk-prompt.jpg" alt="Tampilan ZK Prompt Generator" loading="lazy"></button><span class="free">Gratis</span><h3>ZK Prompt Generator</h3><p>Ubah gambar atau video jadi prompt siap pakai untuk generator gambar dan video AI. Bisa banyak file sekaligus.</p><a class="btn grad" id="tPrompt" aria-disabled="true" href="#alat">Buka ZK Prompt</a><p class="up">Bebas dicoba. <a data-link="lynk" href="#">Versi bebas iklan di Lynk.id</a></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 10h18M8 2.5v4M16 2.5v4"/><circle cx="8.5" cy="15" r="1" fill="#fff"/><circle cx="12" cy="15" r="1" fill="#fff"/><circle cx="15.5" cy="15" r="1" fill="#fff"/></svg></div><span class="free">Gratis</span><h3>ZK Calendar</h3><p>Kalender microstock untuk melihat momen dan musim yang dicari pembeli, supaya aset diunggah tepat waktu.</p><a class="btn grad" id="tCal" aria-disabled="true" href="#alat">Buka ZK Calendar</a><p class="up">Suka? <a data-link="lynk" href="#">Kalender 2026 lengkap di Lynk.id</a></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div><span class="free">Demo gratis</span><h3>ZK Motion Studio</h3><p>Buat animasi motion graphics dari gambar dan prompt, lalu ekspor untuk video. Berjalan langsung di browser.</p><a class="btn grad" id="tMot" aria-disabled="true" href="#alat">Buka ZK Motion</a><p class="up">Mau pakai penuh? <a data-link="lynk" href="#">Paket mulai Rp10.000</a></p></div>
+    </div>
+    <div class="gate">
+      <div><h3>Buka 3 alat lainnya dengan 2 langkah</h3><p>ZK Prompt sudah terbuka. Untuk Metadata, Calendar, dan Motion, klik tiap langkah dan selesaikan di tab yang terbuka.</p></div>
+      <div class="steps">
+        <button class="step" id="sTik"><i>1</i>Ikuti TikTok @ironmenine</button>
+        <button class="step" id="sWa"><i>2</i>Gabung grup WhatsApp</button>
+        <span class="note" id="gateNote"></span>
+      </div>
     </div>
     
-    <!-- KOTAK GATE SYARAT -->
-    <div class="gate">
-      <div>
-        <h3>🔓 Buka Semua Alat Gratis Sekarang!</h3>
-        <p>Selesaikan 2 langkah mudah di samping (Cukup klik tombol 1 & 2). Setelah selesai, tombol alat di bawah akan otomatis aktif dan bisa langsung dipakai sepuasnya!</p>
-      </div>
-      <div class="steps">
-        <button class="step" id="sTik"><i>1</i>📱 Ikuti TikTok @ironmenine</button>
-        <button class="step" id="sWa"><i>2</i>💬 Gabung Grup WhatsApp Kontributor</button>
-        <span class="note" id="gateNote">⚠️ Tombol alat di bawah masih terkunci. Silakan klik langkah 1 & 2 di atas untuk membuka!</span>
-      </div>
-    </div>
-
-    <!-- KARTU ALAT GRATIS -->
-    <div class="tools" style="margin-top: 30px;">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
-        <button class="shot" data-src="aset/zk-metadata.jpg" aria-label="Perbesar tangkapan layar ZK Metadata"><img src="aset/zk-metadata.jpg" alt="Tampilan ZK Metadata" loading="lazy"></button>
-        <span class="free">Gratis</span>
-        <h3>ZK Metadata</h3>
-        <p>AI membaca gambar atau video, lalu menyusun title, deskripsi, dan keyword berperingkat. Ekspor CSV per platform.</p>
-        <a class="btn grad" id="tMeta" aria-disabled="true" href="#alat">🔒 Buka ZK Metadata</a>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
-        <button class="shot" data-src="aset/zk-prompt.jpg" aria-label="Perbesar tangkapan layar ZK Prompt Generator"><img src="aset/zk-prompt.jpg" alt="Tampilan ZK Prompt Generator" loading="lazy"></button>
-        <span class="free">Gratis</span>
-        <h3>ZK Prompt Generator</h3>
-        <p>Ubah gambar atau video jadi prompt siap pakai untuk generator gambar dan video AI.</p>
-        <a class="btn grad" id="tPrompt" aria-disabled="true" href="#alat">🔒 Buka ZK Prompt</a>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M3 10h18M8 2.5v4M16 2.5v4"/><circle cx="8.5" cy="15" r="1" fill="#fff"/><circle cx="12" cy="15" r="1" fill="#fff"/><circle cx="15.5" cy="15" r="1" fill="#fff"/></svg></div>
-        <span class="free">Gratis</span>
-        <h3>ZK Calendar</h3>
-        <p>Kalender microstock untuk melihat momen dan musim yang dicari pembeli.</p>
-        <a class="btn grad" id="tCal" aria-disabled="true" href="#alat">🔒 Buka ZK Calendar</a>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div>
-        <span class="free">Gratis</span>
-        <h3>ZK Motion Studio</h3>
-        <p>Buat animasi motion graphics dari gambar dan prompt, lalu ekspor untuk video.</p>
-        <a class="btn grad" id="tMot" aria-disabled="true" href="#alat">🔒 Buka ZK Motion</a>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ========================================== -->
-<!-- KETIGA: EKSTENSI BROWSER DENGAN IKON JELAS -->
-<!-- ========================================== -->
-<section id="ekstensi">
+<section id="produk">
   <div class="wrap">
-    <div class="head">
-      <h2>Ekstensi otomatis untuk kontributor</h2>
-      <p>Ekstensi browser siap pakai untuk mempercepat pekerjaan berulang di platform stock.</p>
+    <div class="head"><h2>Produk dan harga</h2><p>Semua dibeli lewat Lynk.id. Pilih yang sesuai kebutuhan Anda.</p></div>
+    <div class="pro" id="pro" style="margin:0 0 8px">
+      <div><span class="free">ZK Pro</span><h3>Bebas iklan, generate gambar tanpa batas</h3><div class="price">Rp35.000</div><p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas. Pembelian lewat Lynk.id.</p></div>
+      <a class="btn" data-link="lynk" href="#">Beli ZK Pro</a>
     </div>
-    <div class="ext">
-      <div class="card">
-        <div class="ext-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3>Adobe Stock</h3>
-        <p>Ekstensi otomatis untuk halaman kontributor Adobe Stock.</p>
-      </div>
-      <div class="card">
-        <div class="ext-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-        <h3>Pngtree</h3>
-        <p>Ekstensi otomatis untuk halaman unggah Pngtree.</p>
-      </div>
-      <div class="card">
-        <div class="ext-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <h3>Shutterstock</h3>
-        <p>Ekstensi otomatis untuk Shutterstock dengan pilihan AI Gemini/Groq.</p>
-      </div>
-    </div>
-    <div class="more"><a class="btn grad" data-link="lynk" href="#">Lihat & Dapatkan Ekstensi di Lynk.id</a></div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- KEEMPAT: ASET TERLARIS & PENDAPATAN        -->
-<!-- ========================================== -->
-<section id="aset">
-  <div class="wrap">
-    <div class="head">
-      <h2>Aset yang sudah laku</h2>
-      <p>Delapan aset teratas di Adobe Stock, urut dari unduhan terbanyak.</p>
-    </div>
-    <div class="grid" id="grid"></div>
-    <div class="more"><a class="btn" data-link="lynk" href="#">Lihat dan beli semua aset di Lynk.id</a></div>
+    <div id="prodWrap"></div>
   </div>
 </section>
 
 <section id="hasil">
   <div class="wrap">
-    <div class="head">
-      <h2>Hasil nyata dari Adobe Stock</h2>
-      <p>Angka dari dasbor kontributor saya sendiri, periode tahun ini.</p>
-    </div>
+    <div class="head"><h2>Hasil nyata dari Adobe Stock</h2></div>
     <div class="proof">
       <div class="nums">
-        <div class="num"><b>214</b><small>unduhan</small></div>
-        <div class="num"><b>$186,63</b><small>pendapatan</small></div>
+        <div class="num"><b>214</b><small>unduhan tahun ini</small></div>
+        <div class="num"><b>$186,63</b><small>pendapatan tahun ini</small></div>
       </div>
       <div class="chart">
         <h3>Tren 12 minggu terakhir</h3>
         <div class="legend"><span><i style="background:var(--violet)"></i>Pendapatan (USD)</span><span><i style="background:#FF4D8D;border-radius:50%"></i>Unduhan</span></div>
-        <svg id="trend" viewBox="0 0 720 270" role="img" aria-label="Grafik pendapatan dan unduhan 12 minggu"></svg>
+        <svg id="trend" viewBox="0 0 720 205" role="img" aria-label="Grafik pendapatan dan unduhan 12 minggu"></svg>
       </div>
     </div>
-    <p class="fine">Ini hasil portofolio pribadi di satu platform dan bukan jaminan penghasilan.</p>
+    <div class="strip" id="strip" aria-label="Aset yang laku"></div>
+    <p class="fine">Angka dari dasbor kontributor saya sendiri, hasil portofolio pribadi di satu platform dan bukan jaminan penghasilan. Angka pada gambar kecil adalah jumlah unduhan tiap aset.</p>
   </div>
 </section>
 
 <section id="cara">
   <div class="wrap">
-    <div class="head">
-      <h2>Cara kerjanya, 3 langkah</h2>
-      <p>Dari ide sampai siap unggah ke platform microstock.</p>
-    </div>
+    <div class="head"><h2>Cara kerjanya, 3 langkah</h2><p>Dari ide sampai siap unggah ke platform microstock.</p></div>
     <div class="how">
-      <div class="card"><h3>1. Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt siap pakai.</p></div>
-      <div class="card"><h3>2. Generate di ZK Vector</h3><p>Tempel prompt ke ZK Vector. Hasilnya dikemas rapi dalam file ZIP.</p></div>
-      <div class="card"><h3>3. Beri metadata & unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword otomatis. Langsung unggah!</p></div>
+      <div class="card"><h3>Buat prompt</h3><p>Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt yang mendekati aslinya. Bisa juga bertanya ke AI favorit Anda.</p></div>
+      <div class="card"><h3>Generate di ZK Vector</h3><p>Tempel prompt ke ZK Vector. Generate satu per satu atau sekaligus (batch), hasilnya dikemas rapi dalam file ZIP.</p></div>
+      <div class="card"><h3>Beri metadata lalu unggah</h3><p>Gunakan ZK Metadata untuk title, deskripsi, dan keyword. Gambar dan video sama-sama didukung. Setelah itu unggah ke platform tujuan Anda.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ========================================== -->
-<!-- KELIMA: PROMO VOUCHER & ZK PRO             -->
-<!-- ========================================== -->
-<section>
-  <div class="wrap">
-    <!-- KOTAK PROMO VOUCHER -->
-    <div class="voucher-box">
-      <div>
-        <h4>🎟️ Spesial Diskon Pembelian ZK Pro & Tools!</h4>
-        <p>Gunakan kode voucher khusus saat checkout di Lynk.id untuk mendapatkan potongan harga langsung sebesar Rp5.000!</p>
-      </div>
-      <div class="code-tag">ZKGRATIS</div>
-    </div>
-
-    <div class="pro" id="pro" style="margin-top: 24px;">
-      <div>
-        <span class="free">ZK Pro</span>
-        <h3>Bebas iklan, generate gambar tanpa batas</h3>
-        <div class="price">Rp35.000 <small style="color:var(--mute); font-size:0.9rem;">(Pakai voucher ZKGRATIS jadi lebih murah!)</small></div>
-        <p>Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas.</p>
-      </div>
-      <a class="btn grad" data-link="lynk" href="#">Beli ZK Pro Sekarang</a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
 <section id="faq">
   <div class="wrap">
     <div class="head"><h2>Pertanyaan yang sering masuk</h2></div>
     <div class="faq">
-      <details><summary>Bagaimana cara pakai voucher diskon Rp5.000?</summary><p>Cukup masukkan kode voucher <b>ZKGRATIS</b> saat melakukan *checkout* atau pembelian produk ZK Pro / ekstensi di halaman pembayaran Lynk.id.</p></details>
-      <details><summary>Apakah saya perlu API key sendiri?</summary><p>Ya, alat memakai API key Gemini milik Anda, dan membuatnya gratis. <a data-link="guideApi" href="#">Tonton panduan API key</a></p></details>
+      <details><summary>Apakah saya perlu API key sendiri?</summary><p>Ya, alat memakai API key Gemini milik Anda, dan membuatnya gratis. Saya sediakan video panduan langkah demi langkah. <a data-link="guideApi" href="#">Tonton panduan API key</a></p></details>
       <details><summary>Bagaimana cara memasang ekstensi?</summary><p>Ada video panduan untuk pemasangan di komputer maupun HP. <a data-link="guideExt" href="#">Tonton panduan pemasangan</a></p></details>
-      <details><summary>Apakah data dan API key saya aman?</summary><p>Alat berjalan langsung di browser Anda tanpa server milik kami, jadi API key tidak dikirim ke kami.</p></details>
-      <details><summary>Apa bedanya versi gratis dan Pro?</summary><p>Versi gratis memakai iklan. ZK Pro bebas iklan dan menyertakan generate gambar tanpa batas.</p></details>
+      <details><summary>Apakah data dan API key saya aman?</summary><p>Alat berjalan langsung di browser Anda tanpa server milik kami, jadi API key tidak dikirim ke kami. Tetap jaga API key Anda dan jangan dibagikan ke orang lain.</p></details>
+      <details><summary>Apa bedanya versi gratis dan Pro?</summary><p>Versi gratis memakai iklan dan tetap aman dipakai. ZK Pro bebas iklan dan menyertakan generate gambar tanpa batas lewat ZK Vector.</p></details>
       <details><summary>Bagaimana kalau saya mengalami kendala?</summary><p>Gabung grup WhatsApp untuk diskusi langsung, atau kirim pesan lewat TikTok @ironmenine.</p></details>
     </div>
   </div>
@@ -415,29 +271,27 @@ footer{padding:24px 0 40px;color:var(--mute);font-size:0.88rem;display:flex;just
 <section>
   <div class="wrap">
     <div class="buy">
-      <div><h2>Belajar bareng, bukan sendirian</h2><p>Grup WhatsApp ini sebagai ruang untuk saling berbagi tips dan berdiskusi seputar microstock.</p></div>
+      <div><h2>Belajar bareng, bukan sendirian</h2><p>Grup WhatsApp ini masih kecil. Justru karena itu dibuat sebagai ruang untuk saling berbagi tips dan berdiskusi seputar microstock.</p></div>
       <div class="cta"><a class="btn grad" data-link="wa" href="#">Gabung grup WhatsApp</a></div>
     </div>
   </div>
 </section>
 
-<div class="wrap"><footer><span>© 2026 ZK Creative Studio</span><span>zkcreativestudio.my.id</span></footer></div>
-
-<!-- Floating WhatsApp -->
-<a class="wa" data-link="wa" href="#" aria-label="Chat grup WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2 1.300 2.300 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.400z"/></svg><span>Tanya di WhatsApp</span></a>
-
-<!-- POPUP CHAT NOTIFICATION -->
-<a id="chatPopup" class="chat-popup" href="https://www.tiktok.com/@ironmenine" target="_blank" rel="noopener">
-  <div class="chat-icon-box"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-  <div class="chat-info">
-    <div class="chat-name"><span id="chatUser"></span> <span style="font-size:0.75rem; color:var(--ok);">● Baru saja</span></div>
-    <div class="chat-msg" id="chatText">Mengambil alat gratis...</div>
+<section>
+  <div class="wrap">
+    <div class="buy">
+      <div><h2>Siap mulai?</h2><p>Lihat semua produk di Lynk.id. Tips dan update microstock rutin di TikTok.</p></div>
+      <div class="cta"><a class="btn grad" data-link="lynk" href="#">Lihat semua di Lynk.id</a><a class="btn alt" data-link="tiktok" href="#">TikTok</a></div>
+    </div>
   </div>
-</a>
+</section>
 
+<div class="wrap"><footer><span>© 2026 ZK Creative Studio</span><span>Aset ditampilkan sebagai pratinjau.</span></footer></div>
+
+<a class="wa" data-link="wa" href="#" aria-label="Chat grup WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2 1.300 2.300 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.400z"/></svg><span>Tanya di WhatsApp</span></a>
 <dialog id="lb"><img alt="Tangkapan layar diperbesar"></dialog>
-
 <script>
+// ===== ISI DI SINI =====
 const C={
   tiktok:"https://www.tiktok.com/@ironmenine",
   lynk:"https://lynk.id/sepuluhribudesign",
@@ -445,58 +299,68 @@ const C={
   metadata:"https://zk-stock.github.io/ZK-Metadata-Auto/",
   prompt:"https://zk-stock.github.io/ZK-prompt-generator/",
   calendar:"https://zk-stock.github.io/calendar-microstock/",
-  motion:"#",      
-  guideApi:"https://www.tiktok.com/@ironmenine/video/7608636647357304085?is_from_webapp=1&sender_device=pc&web_id=7674475600152659464",
-  guideExt:"#"    
+  motion:"#",      // URL ZK Motion Studio
+  guideApi:"#",   // link video panduan API key (TikTok/YouTube)
+  guideExt:"#"    // link video panduan pasang ekstensi
 };
-
-const chatList = [
-  {name: "kumpulan film", msg: "Keren banget alat gratisnya mas!"},
-  {name: "AryGem2018", msg: "Izin ambil alat metadatanya ya kak."},
-  {name: "Gyzeen 💀🔥", msg: "Mantap bang, sangat membantu microstock!"},
-  {name: "Edwardpj63", msg: "Udah gabung grup WA-nya bang."},
-  {name: "Mama QuFa", msg: "Izin nyimak dan ambil alat gratisnya ya"},
-  {name: "Dodol Ketan", msg: "Sukses terus buat ZK Creative Studio!"},
-  {name: "Tito Permana", msg: "Alat prompt-nya juara banget bang"},
-  {name: "Jeremy • Teman", msg: "Sudah follow TikTok & ambil alatnya"},
-  {name: "Om Gi - Warga +62", msg: "Gaskeun, tools gratis paling mantap!"}
-];
-
-let chatIndex = 0;
-function showChatPopup() {
-  const popup = document.getElementById("chatPopup");
-  const userEl = document.getElementById("chatUser");
-  const msgEl = document.getElementById("chatText");
-
-  const current = chatList[chatIndex];
-  userEl.textContent = current.name;
-  msgEl.textContent = current.msg;
-
-  popup.classList.add("show");
-  setTimeout(() => { popup.classList.remove("show"); }, 5000);
-  chatIndex = (chatIndex + 1) % chatList.length;
+// ===== STATISTIK KUNJUNGAN (isi salah satu atau keduanya, kosongkan kalau belum dipakai) =====
+const AN={
+  cf:"",   // token Cloudflare Web Analytics (pengunjung, halaman, negara, sumber)
+  ga:""    // ID Google Analytics 4, contoh "G-XXXXXXXXXX" (untuk menghitung klik tombol)
+};
+(function(){
+  if(AN.cf){const s=document.createElement("script");s.defer=true;s.src="https://static.cloudflareinsights.com/beacon.min.js";s.setAttribute("data-cf-beacon",JSON.stringify({token:AN.cf}));document.head.appendChild(s)}
+  if(AN.ga){const s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+AN.ga;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",AN.ga)}
+})();
+function track(n,o){try{if(window.gtag)gtag("event",n,o||{})}catch(e){}}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a,button");if(!a)return;
+  const box=a.closest(".prod,.pro,.card,.buy"),h=box&&box.querySelector("h3,h2"),name=h?h.textContent.trim().slice(0,60):"";
+  if(a.dataset.link)track("klik_"+a.dataset.link,{item:name});
+  else if(/^t(Meta|Prompt|Cal|Mot)$/.test(a.id))track("buka_alat",{alat:a.id});
+  else if(a.id==="sTik"||a.id==="sWa")track("langkah_gerbang",{langkah:a.id});
+  else if(a.dataset.l)track("ganti_bahasa",{bahasa:a.dataset.l});
+},true);
+// ===== BAHASA (default Inggris, tombol EN/ID) =====
+const T={"Alat gratis": "Free tools", "Produk": "Products", "Hasil": "Results", "Tanya jawab": "FAQ", "Lihat produk": "View products", "Alat microstock": "Microstock tools", "buatan kontributor,": "built by a contributor,", "hasilnya terbukti.": "with proven results.", "Coba alat gratisnya dulu. Metadata, prompt, kalender, dan motion untuk kontributor microstock, dari orang yang portofolionya sendiri sudah laku di Adobe Stock.": "Try the free tools first. Metadata, prompts, calendar, and motion for microstock contributors, made by someone whose own portfolio already sells on Adobe Stock.", "Coba alat gratis": "Try the free tools", "unduhan tahun ini": "downloads this year", "$186,63": "$186.63", "pendapatan Adobe Stock": "Adobe Stock earnings", "alat web gratis": "free web tools", "Di Lynk.id": "On Lynk.id", "Metadata, Prompt, Calendar, dan Motion untuk kontributor microstock": "Metadata, Prompt, Calendar, and Motion for microstock contributors", "Produk di Lynk.id:": "Products on Lynk.id:", "Ekstensi Rp20.000": "Extensions Rp20.000", "Motion mulai Rp10.000": "Motion from Rp10.000", "Semua produk": "All products", "Alat gratis untuk kontributor": "Free tools for contributors", "Coba langsung tanpa daftar. ZK Prompt bebas dipakai, tiga alat lain terbuka setelah dua langkah singkat.": "Try them right away, no sign-up. ZK Prompt is open to everyone; the other three unlock after two quick steps.", "Gratis": "Free", "AI membaca gambar atau video, lalu menyusun title, deskripsi, dan keyword berperingkat. Ekspor CSV per platform dan sematkan metadata ke file.": "AI reads your images or videos, then writes the title, description, and ranked keywords. Export CSV per platform and embed metadata into files.", "Buka ZK Metadata": "Open ZK Metadata", "Suka?": "Like it?", "Versi bebas iklan di Lynk.id": "Ad-free version on Lynk.id", "Ubah gambar atau video jadi prompt siap pakai untuk generator gambar dan video AI. Bisa banyak file sekaligus.": "Turn images or videos into ready-to-use prompts for AI image and video generators. Handles many files at once.", "Buka ZK Prompt": "Open ZK Prompt", "Bebas dicoba.": "Free to try.", "Kalender microstock untuk melihat momen dan musim yang dicari pembeli, supaya aset diunggah tepat waktu.": "A microstock calendar showing the moments and seasons buyers search for, so you upload assets on time.", "Buka ZK Calendar": "Open ZK Calendar", "Kalender 2026 lengkap di Lynk.id": "Full 2026 calendar on Lynk.id", "Demo gratis": "Free demo", "Buat animasi motion graphics dari gambar dan prompt, lalu ekspor untuk video. Berjalan langsung di browser.": "Create motion graphics animations from images and prompts, then export for video. Runs right in your browser.", "Buka ZK Motion": "Open ZK Motion", "Mau pakai penuh?": "Want full access?", "Paket mulai Rp10.000": "Plans from Rp10.000", "Buka 3 alat lainnya dengan 2 langkah": "Unlock the other 3 tools in 2 steps", "ZK Prompt sudah terbuka. Untuk Metadata, Calendar, dan Motion, klik tiap langkah dan selesaikan di tab yang terbuka.": "ZK Prompt is already open. For Metadata, Calendar, and Motion, click each step and complete it in the tab that opens.", "Ikuti TikTok @ironmenine": "Follow TikTok @ironmenine", "Gabung grup WhatsApp": "Join the WhatsApp group", "Selesaikan kedua langkah untuk membuka 3 alat lainnya.": "Complete both steps to unlock the other 3 tools.", "Semua alat terbuka. Selamat berkarya!": "All tools unlocked. Happy creating!", "Produk dan harga": "Products and pricing", "Semua dibeli lewat Lynk.id. Pilih yang sesuai kebutuhan Anda.": "Everything is purchased through Lynk.id. Pick what fits your needs.", "Bebas iklan, generate gambar tanpa batas": "Ad-free, unlimited image generation", "Semua alat tanpa iklan, plus ZK Vector untuk generate gambar tanpa batas. Pembelian lewat Lynk.id.": "All tools without ads, plus ZK Vector for unlimited image generation. Purchased through Lynk.id.", "Beli ZK Pro": "Buy ZK Pro", "Unggulan": "Featured", "Metadata Web ZK": "ZK Web Metadata", "Metadata otomatis 10x lebih cepat, siap untuk CSV dan embed Vecteezy.": "Automatic metadata 10x faster, ready for CSV and Vecteezy embed.", "Beli di Lynk.id": "Buy on Lynk.id", "Vector Otomatis": "Auto Vector", "Buat vektor tanpa tracing di Corel dan Adobe Illustrator. Akses lifetime.": "Create vectors without tracing in Corel and Adobe Illustrator. Lifetime access.", "Animasi motion dari gambar dan prompt, pilih lama pemakaian.": "Motion animation from images and prompts. Choose your plan length.", "14 hari": "14 days", "1 bulan": "1 month", "hemat": "best value", "Ekstensi otomatis": "Automation extensions", "Ekstensi Adobe Stock": "Adobe Stock Extension", "Metadata dan tag otomatis di halaman kontributor Adobe Stock.": "Automatic metadata and tags on the Adobe Stock contributor page.", "Ekstensi Pngtree": "Pngtree Extension", "Ekstensi otomatis untuk unggahan di Pngtree.": "Automation extension for Pngtree uploads.", "Ekstensi Shutterstock": "Shutterstock Extension", "Segera hadir di Lynk.id.": "Coming soon on Lynk.id.", "Segera": "Soon", "Mulai dari Rp10.000": "Starting from Rp10.000", "Buat prompt otomatis dari gambar. Bayar suka-suka.": "Generate prompts automatically from images. Pay what you want.", "Kalender Microstock 2026": "Microstock Calendar 2026", "Acara global untuk para kreator, supaya aset diunggah tepat waktu.": "Global events for creators, so assets are uploaded on time.", "Ebook Gambar AI Jadi Cuan": "AI Images That Make Money (Ebook)", "Panduan langkah demi langkah jualan gambar AI untuk pemula.": "A step-by-step guide to selling AI images for beginners.", "Hasil nyata dari Adobe Stock": "Real results from Adobe Stock", "pendapatan tahun ini": "earnings this year", "Tren 12 minggu terakhir": "Last 12 weeks trend", "Pendapatan (USD)": "Earnings (USD)", "Unduhan": "Downloads", "10 Ags": "Aug 10", "17 Ags": "Aug 17", "24 Ags": "Aug 24", "31 Ags": "Aug 31", "7 Sep": "Sep 7", "14 Sep": "Sep 14", "21 Sep": "Sep 21", "28 Sep": "Sep 28", "5 Okt": "Oct 5", "12 Okt": "Oct 12", "19 Okt": "Oct 19", "26 Okt": "Oct 26", "Angka dari dasbor kontributor saya sendiri, hasil portofolio pribadi di satu platform dan bukan jaminan penghasilan. Angka pada gambar kecil adalah jumlah unduhan tiap aset.": "Figures come from my own contributor dashboard. This is a personal portfolio result on a single platform, not a guarantee of income. The numbers on the small images are each asset's downloads.", "Cara kerjanya, 3 langkah": "How it works, in 3 steps", "Dari ide sampai siap unggah ke platform microstock.": "From idea to ready-to-upload for microstock platforms.", "Buat prompt": "Create a prompt", "Pilih gambar referensi sebagai inspirasi gaya, lalu ZK Prompt mengubahnya jadi prompt yang mendekati aslinya. Bisa juga bertanya ke AI favorit Anda.": "Pick a reference image for style inspiration, and ZK Prompt turns it into a prompt close to the original. You can also ask your favorite AI.", "Generate di ZK Vector": "Generate in ZK Vector", "Tempel prompt ke ZK Vector. Generate satu per satu atau sekaligus (batch), hasilnya dikemas rapi dalam file ZIP.": "Paste the prompt into ZK Vector. Generate one at a time or in batches, with results neatly packed in a ZIP file.", "Beri metadata lalu unggah": "Add metadata, then upload", "Gunakan ZK Metadata untuk title, deskripsi, dan keyword. Gambar dan video sama-sama didukung. Setelah itu unggah ke platform tujuan Anda.": "Use ZK Metadata for the title, description, and keywords. Both images and videos are supported. Then upload to your target platform.", "Pertanyaan yang sering masuk": "Frequently asked questions", "Apakah saya perlu API key sendiri?": "Do I need my own API key?", "Ya, alat memakai API key Gemini milik Anda, dan membuatnya gratis. Saya sediakan video panduan langkah demi langkah.": "Yes, the tools use your own Gemini API key, and creating one is free. I provide a step-by-step video guide.", "Tonton panduan API key": "Watch the API key guide", "Bagaimana cara memasang ekstensi?": "How do I install the extensions?", "Ada video panduan untuk pemasangan di komputer maupun HP.": "There is a video guide for installing on both computer and phone.", "Tonton panduan pemasangan": "Watch the installation guide", "Apakah data dan API key saya aman?": "Are my data and API key safe?", "Alat berjalan langsung di browser Anda tanpa server milik kami, jadi API key tidak dikirim ke kami. Tetap jaga API key Anda dan jangan dibagikan ke orang lain.": "The tools run directly in your browser without our own server, so your API key is not sent to us. Still, keep your API key private and do not share it with others.", "Apa bedanya versi gratis dan Pro?": "What is the difference between Free and Pro?", "Versi gratis memakai iklan dan tetap aman dipakai. ZK Pro bebas iklan dan menyertakan generate gambar tanpa batas lewat ZK Vector.": "The free version shows ads and is still safe to use. ZK Pro is ad-free and includes unlimited image generation through ZK Vector.", "Bagaimana kalau saya mengalami kendala?": "What if I run into a problem?", "Gabung grup WhatsApp untuk diskusi langsung, atau kirim pesan lewat TikTok @ironmenine.": "Join the WhatsApp group to talk directly, or send a message on TikTok @ironmenine.", "Belajar bareng, bukan sendirian": "Learn together, not alone", "Grup WhatsApp ini masih kecil. Justru karena itu dibuat sebagai ruang untuk saling berbagi tips dan berdiskusi seputar microstock.": "This WhatsApp group is still small. That is exactly why it is a space to share tips and discuss microstock.", "Siap mulai?": "Ready to start?", "Lihat semua produk di Lynk.id. Tips dan update microstock rutin di TikTok.": "See all products on Lynk.id. Regular microstock tips and updates on TikTok.", "Lihat semua di Lynk.id": "See all on Lynk.id", "Aset ditampilkan sebagai pratinjau.": "Assets are shown as previews.", "Tanya di WhatsApp": "Ask on WhatsApp", "Cuplikan alat gratis": "Free tools preview", "Tampilan ZK Metadata": "ZK Metadata screenshot", "Tampilan ZK Prompt Generator": "ZK Prompt Generator screenshot", "Banner ZK Prompt Generator": "ZK Prompt Generator banner", "Perbesar tangkapan layar ZK Metadata": "Enlarge ZK Metadata screenshot", "Perbesar tangkapan layar ZK Prompt Generator": "Enlarge ZK Prompt Generator screenshot", "Grafik pendapatan dan unduhan 12 minggu": "Chart of earnings and downloads over 12 weeks", "Aset yang laku": "Assets that sell", "Set ikon organ tubuh": "Body organ icon set", "Label dan banner promo": "Promo labels and banners", "Doodle pesta tahun baru": "New Year party doodles", "Logo klub baseball": "Baseball club logo", "Logo kedai kopi": "Coffee shop logo", "Chat grup WhatsApp": "Chat in the WhatsApp group", "Tangkapan layar diperbesar": "Enlarged screenshot"};
+const MET={id:{t:document.title,d:document.querySelector('meta[name=description]').content},en:{t:"ZK Creative Studio — Free Microstock Tools and Products for Contributors",d:"Free microstock tools (metadata, prompts, calendar, motion) and products for contributors, from a portfolio that already sells on Adobe Stock."}};
+let LANG="en";try{LANG=localStorage.getItem("zklang")||"en"}catch(e){}
+const ORIG=new WeakMap();
+function applyLang(){
+  document.documentElement.lang=LANG;
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(n=>{const p=n.parentElement;if(!p||p.tagName==="SCRIPT"||p.tagName==="STYLE")return;
+    const o=ORIG.has(n)?ORIG.get(n):n.data,k=o.trim(),en=LANG==="en"&&T[k];
+    if(en){ORIG.set(n,o);n.data=o.replace(k,en)}else if(ORIG.has(n)){n.data=ORIG.get(n);ORIG.delete(n)}});
+  document.querySelectorAll("[alt],[aria-label],[title]").forEach(e=>["alt","aria-label","title"].forEach(a=>{
+    const v=e.getAttribute(a);if(v===null)return;const key="o"+a.replace("-",""),o=e.dataset[key]!==undefined?e.dataset[key]:v,en=LANG==="en"&&T[o.trim()];
+    if(en){e.dataset[key]=o;e.setAttribute(a,en)}else if(e.dataset[key]!==undefined){e.setAttribute(a,e.dataset[key]);delete e.dataset[key]}}));
+  const m=MET[LANG==="en"?"en":"id"];document.title=m.t;document.querySelector('meta[name=description]').content=m.d;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===LANG));
 }
-
-setTimeout(() => {
-  showChatPopup();
-  setInterval(showChatPopup, 9000);
-}, 3000);
-
+function bindLang(){document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{LANG=b.dataset.l;try{localStorage.setItem("zklang",LANG)}catch(e){}applyLang()})}
 const A=[["aset1","Lettering Class of 2026",38],["aset2","Set ikon organ tubuh",12],["aset3","Label dan banner promo",8],["aset4","Doodle pesta tahun baru",7],["aset5","Logo klub baseball",6],["aset6","Logo kedai kopi",6],["aset7","Pemain sepak bola",5],["aset8","Mockup papan iklan jalan",5]];
 const img=(a,alt)=>'<img src="aset/'+a[0]+'.jpg" alt="'+alt+'" loading="lazy">';
-const hero=document.getElementById("hero");
-[[0,1],[2],[6],[4],[5],[3]].forEach((g,i)=>{
-  const a=A[g[0]],t=document.createElement("div");
-  t.className="tile"+(g[1]?" big":"");t.style.setProperty("--i",i);
-  t.innerHTML=img(a,a[1])+'<span class="badge">'+a[2]+' unduhan</span>';
-  hero.appendChild(t);
-});
-document.getElementById("grid").innerHTML=A.map(a=>'<div class="item"><div class="ph">'+img(a,a[1])+'<span class="badge">'+a[2]+' unduhan</span></div><div class="tx">'+a[1]+'</div></div>').join("");
-document.querySelectorAll("[data-link]").forEach(e=>{e.href=C[e.dataset.link];e.target="_blank";e.rel="noopener"});
 
+document.getElementById("strip").innerHTML=A.slice(0,6).map(a=>'<div class="mini" title="'+a[1]+'"><img src="aset/'+a[0]+'.jpg" alt="'+a[1]+'" loading="lazy"><span class="badge">'+a[2]+'</span></div>').join("");
+const P=[["Unggulan",[
+["Metadata Web ZK","Metadata otomatis 10x lebih cepat, siap untuk CSV dan embed Vecteezy.","Rp25.000","v"],
+["Vector Otomatis","Buat vektor tanpa tracing di Corel dan Adobe Illustrator. Akses lifetime.","Rp50.000","g"],
+["ZK Motion Studio","Animasi motion dari gambar dan prompt, pilih lama pemakaian.","","o",[["14 hari","Rp10.000"],["1 bulan","Rp25.000"],["Lifetime","Rp65.000","hemat"]]]]],
+["Ekstensi otomatis",[
+["Ekstensi Adobe Stock","Metadata dan tag otomatis di halaman kontributor Adobe Stock.","Rp20.000","v"],
+["Ekstensi Pngtree","Ekstensi otomatis untuk unggahan di Pngtree.","Rp20.000","v"],
+["Ekstensi Shutterstock","Segera hadir di Lynk.id.","","v",0,1]]],
+["Mulai dari Rp10.000",[
+["ZK Prompt Tool","Buat prompt otomatis dari gambar. Bayar suka-suka.","Rp10.000","v"],
+["Kalender Microstock 2026","Acara global untuk para kreator, supaya aset diunggah tepat waktu.","Rp10.000","g"],
+["Ebook Gambar AI Jadi Cuan","Panduan langkah demi langkah jualan gambar AI untuk pemula.","Rp10.000","g"]]]];
+document.getElementById("prodWrap").innerHTML=P.map(g=>'<h3 class="sub">'+g[0]+'</h3><div class="prods">'+g[1].map(p=>'<div class="prod c-'+p[3]+(p[5]?' soon':'')+'"><h3>'+p[0]+'</h3><p>'+p[1]+'</p>'+(p[4]?'<div class="opts">'+p[4].map(o=>'<div'+(o[2]?' class="best"':'')+'><span>'+o[0]+(o[2]?'<em>'+o[2]+'</em>':'')+'</span><b>'+o[1]+'</b></div>').join('')+'</div>':(p[2]?'<div class="pr">'+p[2]+'</div>':''))+(p[5]?'<span class="btn alt" aria-disabled="true" style="opacity:.5">Segera</span>':'<a class="btn" data-link="lynk" href="#">Beli di Lynk.id</a>')+'</div>').join('')+'</div>').join('');
+document.querySelectorAll("[data-link]").forEach(e=>{e.href=C[e.dataset.link];e.target="_blank";e.rel="noopener"});
+// grafik tren (nilai perkiraan dari dasbor; ubah sesuai data terbaru)
 (function(){
   const W=[["10 Ags",7,7],["17 Ags",.9,1],["24 Ags",0,0],["31 Ags",4.2,3],["7 Sep",1.4,2],["14 Sep",10.4,3],["21 Sep",1.5,2],["28 Sep",2.2,3],["5 Okt",1.9,2],["12 Okt",3.4,4],["19 Okt",10,10],["26 Okt",4.2,5]];
-  const L=44,R=676,T=14,B=232,M=12,sx=(R-L)/W.length,y=v=>B-(B-T)*v/M;
+  const L=44,R=676,T=12,B=168,M=12,sx=(R-L)/W.length,y=v=>B-(B-T)*v/M;
   let h='<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6C63FF"/><stop offset="1" stop-color="#27C3F0"/></linearGradient></defs>';
   [0,3,6,9,12].forEach(v=>{h+='<line x1="'+L+'" x2="'+R+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="currentColor" opacity=".12"/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">$'+v+'</text><text x="'+(R+8)+'" y="'+(y(v)+4)+'">'+v+'</text>'});
   let pts=[];
@@ -507,37 +371,32 @@ document.querySelectorAll("[data-link]").forEach(e=>{e.href=C[e.dataset.link];e.
   pts.forEach(p=>{h+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="var(--paper)" stroke="#FF4D8D" stroke-width="2"/>'});
   document.getElementById("trend").innerHTML=h;
 })();
-
+// lightbox tangkapan layar
 const lb=document.getElementById("lb");
 document.querySelectorAll(".shot").forEach(b=>b.onclick=()=>{lb.querySelector("img").src=b.dataset.src;lb.showModal()});
 lb.onclick=()=>lb.close();
-
+// gerbang alat gratis (sistem kejujuran: klik langkah dianggap selesai)
 const st={tik:false,wa:false};
 try{Object.assign(st,JSON.parse(localStorage.getItem("zkgate")||"{}"))}catch(e){}
 function paint(){
+  const bp=document.getElementById("tPrompt");bp.setAttribute("aria-disabled","false");bp.href=C.prompt;bp.target="_blank";bp.rel="noopener";
   document.getElementById("sTik").classList.toggle("done",st.tik);
   document.getElementById("sWa").classList.toggle("done",st.wa);
   document.querySelectorAll(".step i").forEach((i,n)=>{i.textContent=(n?st.wa:st.tik)?"✓":n+1});
   const open=st.tik&&st.wa;
-  [["tMeta",C.metadata],["tPrompt",C.prompt],["tCal",C.calendar],["tMot",C.motion]].forEach(([id,u])=>{
-    const b=document.getElementById(id);
-    b.setAttribute("aria-disabled",!open);
-    if(open){
-      b.href=u;
-      b.target="_blank";
-      b.rel="noopener";
-      b.innerHTML = b.innerHTML.replace("🔒", "🚀");
-    }else{
-      b.href="#alat";
-      b.removeAttribute("target");
-    }
+  [["tMeta",C.metadata],["tCal",C.calendar],["tMot",C.motion]].forEach(([id,u])=>{
+    const b=document.getElementById(id);b.setAttribute("aria-disabled",!open);
+    if(open){b.href=u;b.target="_blank";b.rel="noopener"}else{b.href="#alat";b.removeAttribute("target")}
   });
-  document.getElementById("gateNote").textContent=open?"🎉 Selamat! Semua alat gratis sudah terbuka dan siap digunakan!":"⚠️ Tombol alat di bawah masih terkunci. Silakan klik langkah 1 & 2 di atas untuk membuka!";
+  document.getElementById("gateNote").textContent=open?"Semua alat terbuka. Selamat berkarya!":"Selesaikan kedua langkah untuk membuka 3 alat lainnya.";
   try{localStorage.setItem("zkgate",JSON.stringify(st))}catch(e){}
+  applyLang();
 }
 document.getElementById("sTik").onclick=()=>{window.open(C.tiktok,"_blank","noopener");st.tik=true;paint()};
 document.getElementById("sWa").onclick=()=>{window.open(C.wa,"_blank","noopener");st.wa=true;paint()};
 paint();
+bindLang();
+applyLang();
 </script>
 </body>
 </html>
